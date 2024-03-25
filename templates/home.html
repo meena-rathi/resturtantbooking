@@ -1,4 +1,7 @@
+{% extends "base.html" %}
 {% load static %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +26,7 @@
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'img/la.jpg' %}" alt="Los Angeles" class="d-block w-100">
+      <img  src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Los Angeles" class="d-block w-100">
       <div class="carousel-caption">
         <h3>Los Angeles</h3>
         <p>We had such a great time in LA!</p>
@@ -56,3 +59,4 @@
 
 </body>
 </html>
+{%endblock%}
