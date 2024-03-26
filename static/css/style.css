@@ -1,7 +1,18 @@
 body { 
     color: white; 
 } 
+.carousel-item {
+    height: 400px; /* Set the height */
+    width: 100%; /* Take up full width */
+    border: 10px solid #c40b0b; /* Add a border */
+    border-radius: 5px; /* Optionally, add border-radius for rounded corners */
+}
 
+.carousel-item img {
+    height: 100%; /* Ensure the image takes up the full height of the carousel item */
+    width: 100%; /* Ensure the image takes up the full width of the carousel item */
+    object-fit: cover; /* Ensure the entire image is visible within the specified height */
+}
 .footer { 
     background-color: #198754; 
 } 
