@@ -3,7 +3,7 @@
 
 <html class="h-100">
 <head>
-    <title>CodeStar Blog</title>
+    <title>Resturtant</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -16,18 +16,19 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
    
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styl.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
+   
+      
     <!-- Navigation -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">l</span>de<span
                         class="thin">|star</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,9 +67,13 @@
                 {% endfor %}
             </div>
         </div>
-        {% block content %}
-        {% endblock %}
-    </div>
+        <div class="container-fluid callout-container">
+            <div class="opaque-overlay">&nbsp;
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <script src="{% static 'js/script.js' %}"></script>
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-white">Made by Code Instituters</p>
@@ -77,6 +82,7 @@
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i></p>
     </footer>
+
     <script>
         setTimeout(function () {
             let messages = document.getElementById('msg');
