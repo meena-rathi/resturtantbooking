@@ -16,10 +16,10 @@ body {
 }
 
 /* Define styles for alternating sections */
-.section:nth-child(even) {
+/* .section:nth-child(even) {
     background: url("../image/slide1.jpg") no-repeat bottom right fixed; 
     background-size: cover;
-}
+} */
 #section1 {
     color: #fff;
     font-size: 50px;

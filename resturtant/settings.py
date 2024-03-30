@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 if os.path.isfile("env.py"):
@@ -30,6 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com"]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com']
+
 
 # Application definition
 
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'django.middleware.csrf.CsrfViewMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -79,12 +83,18 @@ WSGI_APPLICATION = "resturtant.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
