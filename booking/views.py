@@ -5,3 +5,7 @@ from django.http import HttpResponse
 def home(request):
     #return HttpResponse("Hello, World!")
     return render(request, 'home.html')
+
+
+def reservation(request):
+    return render(request, 'reservation.html')

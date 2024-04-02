@@ -1,3 +1,21 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle reservation button click
+
+        console.log("Reservation button clicked");
+        // You can add additional logic here if needed
+        // For example, redirecting to the reservation page
+        window.location.href = "{% url 'reservation' %}";
+    // Add click event listener to reservation button
+    var reservationButton = document.getElementById('reservation-btn');
+    if (reservationButton) {
+        reservationButton.addEventListener('click', reservation);
+    } else {
+        console.error("Reservation button not found.");
+    }
+
+    window.addEventListener('scroll', handleScroll);
+});
 function isInViewport(element) {
     var rect = element.getBoundingClientRect();
     return (
@@ -19,6 +37,3 @@ function handleScroll() {
         }
     });
 }
-
-// Add scroll event listener
-window.addEventListener('scroll', handleScroll);
