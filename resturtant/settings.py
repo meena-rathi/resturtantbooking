@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-y0=9xai!1@2majw6apv78e1$cmn0cds)ay2yjoxj-lvp+84(*2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com"]
+ALLOWED_HOSTS = ['8000-meenarathi-resturtantbo-f509243qgew.ws-eu110.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com']
 
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "booking",
-    "bootstrap5",
     'cloudinary_storage',
     'cloudinary',
 ]
@@ -135,6 +134,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
  
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

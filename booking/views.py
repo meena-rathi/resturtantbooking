@@ -9,3 +9,6 @@ def home(request):
 
 def reservation(request):
     return render(request, 'reservation.html')
+
+def menu(request):
+    return render(request, 'menu.html')
