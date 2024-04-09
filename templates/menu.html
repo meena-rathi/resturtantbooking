@@ -1,28 +1,66 @@
 
 {% extends 'home.html'%}
 {% block title %}Home Page{% endblock %}
-
+{% load static %}
 {% block content %}
+<div id="section" class="section">
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+<div class="container">
+
+    <ul class="nav nav-tabs mb3, justifty-content-center"  id="myTab" role="tablist">
+      <!-- <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="lunch-tab" data-bs-toggle="tab" data-bs-target="#lunch-tab-pane" type="button" role="tab" aria-controls="lunch-tab-pane" aria-selected="true">All</button>
+      </li> -->
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active " id="Lunch-tab" data-bs-toggle="tab" data-bs-target="#Lunch-tab-pane" type="button" role="tab" aria-controls="Lunch-tab-pane" aria-selected="true">Lunch</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link " id="dinner-tab" data-bs-toggle="tab" data-bs-target="#dinner-tab-pane" type="button" role="tab" aria-controls="dinner-tab-pane" aria-selected="true">Dinner</button>
+      </li>
+      <!-- <li class="nav-item" role="presentation">
+        <button class="nav-link " id="dinner-tab" data-bs-toggle="tab" data-bs-target="#dinner-tab-pane" type="button" role="tab" aria-controls="dinner-tab-pane" aria-selected="true">Dinner</button>
+      </li> -->
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <!-- <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    </div> -->
+   
+    <div class="tab-pane fade show active" id="Lunch-tab-pane" role="tabpanel" aria-labelledby="Lunch-tab" tabindex="0">
+      <div class="container">
+          <div class="row">
+              {% for lunch_item in lunch_items %}
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                  <div class="menu-item">
+                      <img class="menu-item-image" src="{% static lunch_item.image %}" alt="Lunch"/>
+                     <div class="description"> <p>{{ lunch_item.description }}</p>
+                     
+                    </div>
+                   
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+  <div class="tab-pane fade show " id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
+        
+       <div class="container">
+          <div class="row">
+              {% for dinner_item in dinner_items %}
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                  <div class="menu-item">
+                      <img class="menu-item-image" src="{% static dinner_item.image %}" alt="Dinner"/>
+                     <div class="description"> <p>{{ dinner_item.description }}</p>
+                     
+                    </div>
+                   
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
 </div>
-
+</section>
+</div>
 {% endblock %}
