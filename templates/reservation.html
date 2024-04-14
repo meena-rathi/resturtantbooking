@@ -2,15 +2,62 @@
 {% block title %}Reservation Page{% endblock %}
 
 {% block content %}
-<div id="reservation-section" class="section">
-    <!-- Reservation Section content -->
-    <h2>Reservation Form</h2>
-    <!-- Your reservation form HTML goes here -->
 
-    <div id="help" class="help-section">
-        <!-- Help Section content -->
-        <h3>Help</h3>
-        <p>This is the help section for the reservation page. You can add instructions or guidance here.</p>
-    </div>
+<div class="container">
+    <section class="d-flex flex-column justify-content-center align-items-center text-center py-5">
+        <h2>Reservation Form</h2>
+        <div id="booking-form-container" class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="" id="booking-form" method="post" class="border p-4 rounded">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.name.label_tag }}
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.contact_number.label_tag }}
+                                {{ form.contact_number }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.number_people.label_tag }}
+                                {{ form.number_people }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.date.label_tag }}
+                                {{ form.date }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.time.label_tag }}
+                                {{ form.time }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}

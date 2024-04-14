@@ -7,6 +7,7 @@ body {
 
 }
 
+
 .section {
     height: 100vh;
     /* Set section height to fill viewport */
@@ -93,18 +94,18 @@ body {
 .menu-item {
     position: relative;
     margin-top: 50px;
-    margin-right: 2px; /* Adjust the margin between items */
-    width: 200px; /* Set a fixed width for each menu item */
-    height: 250px; /* Set a fixed height for each menu item */
-    border: 1px solid  #a52a2a; /* Add border */
+    margin-right: 2px; 
+    width: 250px; 
+    height: 250px; 
+    border: 1px solid  #a52a2a;
  
 }
 
 .menu-item-image {
-    width: 100%; /* Set width to fill container */
-    height: 80%; /* Set height to occupy 80% of container height */
+    width: 100%; 
+    height: 80%; 
     display: block;
-    object-fit: cover; /* Ensure the image covers the entire container */
+    object-fit: cover; 
     transition: transform 0.3s ease; 
 }
 
@@ -126,7 +127,10 @@ body {
     padding: 10px;
     margin: 0;
     transition: transform 0.3s ease; 
-}
+} 
+
+
+
 
 
 #section {
@@ -144,4 +148,14 @@ body {
     /* background-color: rgb(83, 88, 88); */
     color: #fff;
     font-size: 20;
+}
+.container h2{
+    color: #3d0202;
+    
+}
+#booking-form-container{
+    color: #3d0202;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }

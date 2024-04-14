@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import ReservationsForm
 
 # Create your views here.
 def home(request):
@@ -8,8 +9,20 @@ def home(request):
 
 
 def reservation(request):
-    return render(request, 'reservation.html')
-
+    try:
+        if request.method == 'POST':
+            form = ReservationsForm(request.POST)
+            if form.is_valid():
+                print(form.cleaned_data)  # Check the form data in console
+                form.save()
+            else:
+                print(form.errors)  # Print form errors
+        else:
+            form = ReservationsForm()
+        context = {'form': form}
+        return render(request, 'reservation.html', context)
+    except Exception as e:
+        print(e)  # Print any exception that occurs
 def menu(request):
     lunch_items = [
         {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},

@@ -1,10 +1,11 @@
 from django import forms
-from .models import reservation
+from .models import Reservation
 
-class reservationsForms(forms.ModelForm):
+class ReservationsForm(forms.ModelForm):
     class Meta:
-        model = reservation
-        Fields = ['email', 'contact_number', 'number_people', 'date', 'time']
+        model = Reservation
+        fields = ['name','email', 'contact_number', 'number_people', 'date', 'time']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
+            'time': forms.TimeInput(attrs={'type': 'time'}),
         }
