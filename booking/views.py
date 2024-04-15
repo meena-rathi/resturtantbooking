@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ReservationsForm
+from .models import Reservation
 
 # Create your views here.
 def home(request):
     #return HttpResponse("Hello, World!")
     return render(request, 'home.html')
 
+
+# Create your views here.
+def view_reservation(request):
+    bookings = Reservation.objects.all() 
+    context = {"bookings": bookings}  
+    return render(request, "view_reservation.html", context)
 
 def reservation(request):
     try:
@@ -23,6 +30,8 @@ def reservation(request):
         return render(request, 'reservation.html', context)
     except Exception as e:
         print(e)  # Print any exception that occurs
+
+        
 def menu(request):
     lunch_items = [
         {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},

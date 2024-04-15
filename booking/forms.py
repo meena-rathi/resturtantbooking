@@ -1,5 +1,7 @@
 from django import forms
 from .models import Reservation
+from datetime import date
+
 
 class ReservationsForm(forms.ModelForm):
     class Meta:
@@ -8,4 +10,8 @@ class ReservationsForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
+            'number_people': forms.TextInput(attrs={}),
         }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.initial['date'] = date.today()

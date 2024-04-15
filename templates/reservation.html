@@ -8,7 +8,7 @@
         <h2>Reservation Form</h2>
         <div id="booking-form-container" class="row">
             <div class="col-md-8 offset-md-2">
-                <form action="" id="booking-form" method="post" class="border p-4 rounded">
+                <form action="{% url 'view_reservation' %}" id="booking-form" method="post" class="border p-4 rounded">
                     {% csrf_token %}
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -53,7 +53,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <!-- <a href="{% url 'view_reservation' %}"><button type="submit">Submit</button></a> -->
+                        <button type="submit" onclick="view_reservation" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
