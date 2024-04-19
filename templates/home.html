@@ -2,30 +2,26 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-<div id="section1" class="section">
-       <!-- Section 1 content -->
-        <p>Our Food And Drink</p>
-        <div class="button-container">
-            <a href="{% url 'menu' %}"><button>Menu</button></a>
-        </div>
-</div>
-
-
-<div id="section1" class="section">
-    <!-- Section 2 content -->
-    <p>Reservations</p>
-    <div class="button-container">
+<div class="container">
+    <div id="section1" class="section">
+        <!-- Section 1 content -->
+         <p>Our Food And Drink</p>
+         <div class="button-container">
+             <a href="{% url 'menu' %}"><button>Menu</button></a>
+         </div>
         <button id="reservation-btn">Reservations</button>
     </div>
 </div>
+
 <div id="section3" class="section">
-    <!-- Section 3 content -->
-    <h2>Section 3</h2>
+    
     <p>This is the content of section 3</p>
-</div>
-<div id="section4" class="section">
-    <!-- Section 4 content -->
-    <h2>Section 4</h2>
-    <p>This is the content of section 4</p>
+    </div>
+
+    <div id="section4" class="section">
+        <!-- Section 4 content -->
+        <h2>Section 4</h2>
+        <p>This is the content of section 4</p>
+    </div>
 </div>
 {% endblock %}

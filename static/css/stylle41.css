@@ -6,34 +6,42 @@ body {
     /* background-color: gray; */
 
 }
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
 
 
 .section {
     height: 100vh;
-    /* Set section height to fill viewport */
+    background-attachment: fixed;
+    margin-left: 0; /* Set left margin to 0 */
+    margin-right: 0; 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
+} 
 
 /* Define styles for alternating sections */
 /* .section:nth-child(even) {
     background: url("../image/slide1.jpg") no-repeat bottom right fixed; 
     background-size: cover;
 } */
+
+
 #section1 {
     color: #fff;
     font-size: 50px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     align-items: center;
-    /* Center items horizontally */
+
 }
 
-.button-container {
+/* .button-container {
     margin-top: 10px;
 }
 
@@ -43,18 +51,18 @@ body {
     font-size: 40px;
     border: none;
     padding: 10px 20px;
-}
-
+} */
+/* 
 #section2 {
     color: #fff;
     font-size: 50px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
+
     align-items: center;
-    /* Center items horizontally */
-}
+    
+} */
 
 .button-container {
     margin-top: 10px;
@@ -67,14 +75,6 @@ body {
     border: none;
     padding: 10px 20px;
 }
-
-
-
-
-/* .menu-item img {
-    max-width: 100%;
-    height: 200px; 
-} */
 
 
 #section .nav-tabs .nav-link {
@@ -100,6 +100,7 @@ body {
     border: 1px solid  #a52a2a;
  
 }
+
 
 .menu-item-image {
     width: 100%; 
@@ -149,13 +150,29 @@ body {
     color: #fff;
     font-size: 20;
 }
-.container h2{
-    color: #3d0202;
+ .container h2{
+    color: #fff;
     
 }
-#booking-form-container{
-    color: #3d0202;
-    font-size: 20px;
+
+#booking-form-container .form-control {
+    padding: 10px; 
+    font-size: 16px;
+}
+
+#booking-form-container label {
+    font-size: 16px; 
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+}
+
+#booking-form-container .btn-primary {
+    padding: 10px 20px; 
+    font-size: 18px; 
+ 
+}
+
+#booking-form-container {
+    margin: 20px; 
+    padding: 20px; 
 }

@@ -31,7 +31,11 @@ def reservation(request):
     except Exception as e:
         print(e)  # Print any exception that occurs
 
-        
+def account(request):
+    # Some logic here
+    login_url = reverse('account_login')
+    return HttpResponseRedirect(login_url)
+         
 def menu(request):
     lunch_items = [
         {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
