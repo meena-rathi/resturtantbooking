@@ -41,28 +41,15 @@ html, body {
 
 }
 
-/* .button-container {
-    margin-top: 10px;
-}
-
-.button-container button {
-    background-color: #a52a2a;
-    color: #fff;
-    font-size: 40px;
-    border: none;
-    padding: 10px 20px;
-} */
-/* 
 #section2 {
     color: #fff;
     font-size: 50px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
-
     align-items: center;
     
-} */
+} 
 
 .button-container {
     margin-top: 10px;
@@ -129,11 +116,6 @@ html, body {
     margin: 0;
     transition: transform 0.3s ease; 
 } 
-
-
-
-
-
 #section {
     color: #fff;
     font-size: 15px;
