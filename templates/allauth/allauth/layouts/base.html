@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 {% load i18n %}
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,6 @@
                 </div>
             {% endif %}
             <div>
-                <strong>{% trans "Menu:" %}</strong>
                 <ul>
                     {% if user.is_authenticated %}
                         <li>

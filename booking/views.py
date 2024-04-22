@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ReservationsForm
 from .models import Reservation
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -14,7 +15,8 @@ def view_reservation(request):
     bookings = Reservation.objects.all() 
     context = {"bookings": bookings}  
     return render(request, "view_reservation.html", context)
-
+    
+@login_required
 def reservation(request):
     try:
         if request.method == 'POST':
