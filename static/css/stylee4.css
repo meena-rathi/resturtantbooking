@@ -158,3 +158,29 @@ html, body {
     margin: 20px; 
     padding: 20px; 
 }
+
+.navbar-nav .nav-link{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.navbar-nav .nav-link.active
+{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav-link
+{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.navbar-nav .nav-link:hover {
+    color: #a52a2a;
+}
+/* Change color of navbar links on hover */
+.nav-item .nav-link:hover {
+    color: #a52a2a;
+}
