@@ -18,20 +18,19 @@ def view_reservation(request):
     
 @login_required
 def reservation(request):
-    try:
-        if request.method == 'POST':
-            form = ReservationsForm(request.POST)
-            if form.is_valid():
-                print(form.cleaned_data)  # Check the form data in console
-                form.save()
-            else:
-                print(form.errors)  # Print form errors
-        else:
-            form = ReservationsForm()
-        context = {'form': form}
-        return render(request, 'reservation.html', context)
-    except Exception as e:
-        print(e)  # Print any exception that occurs
+    if request.method == 'POST':
+        form = ReservationsForm(request.POST)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            reservation.user = request.user  # Set the user to the logged-in user
+            reservation.name = request.user.username  # Set the reservation name to the logged-in user's username
+            reservation.save()
+            return redirect('view_reservation')
+    else:
+        initial_data = {'user': request.user.username} if request.user.is_authenticated else {}  # Set initial data with username if user is logged in
+        form = ReservationsForm(initial=initial_data) 
+    context = {'form': form}
+    return render(request, 'reservation.html', context)
 
 def account(request):
     # Some logic here
