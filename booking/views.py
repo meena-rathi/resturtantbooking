@@ -22,13 +22,12 @@ def reservation(request):
         form = ReservationsForm(request.POST)
         if form.is_valid():
             reservation = form.save(commit=False)
-            reservation.user = request.user  # Set the user to the logged-in user
-            reservation.name = request.user.username  # Set the reservation name to the logged-in user's username
+            reservation.user = request.user  
+            reservation.name = request.user.username  
             reservation.save()
             return redirect('view_reservation')
     else:
-        initial_data = {'user': request.user.username} if request.user.is_authenticated else {}  # Set initial data with username if user is logged in
-        form = ReservationsForm(initial=initial_data) 
+        initial_data = {'user': request.user.username} if request.user.is_authenticated else {}  
     context = {'form': form}
     return render(request, 'reservation.html', context)
 
