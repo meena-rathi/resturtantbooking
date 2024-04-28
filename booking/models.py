@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # ForeignKey to the User model
     email = models.EmailField(max_length=30, null=False, blank=False)
@@ -12,6 +10,6 @@ class Reservation(models.Model):
     time = models.TimeField(null=False)
     
     def __str__(self):
-        return f"Reservation for {self.user.username} on {self.date} at {self.time}"
+        return f"Reservation for {self.user}{self.user.username} on {self.date} at {self.time} {self.date}"
     
     

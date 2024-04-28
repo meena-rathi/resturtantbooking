@@ -1,12 +1,13 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ReservationsForm
 from .models import Reservation
+from datetime import date
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    #return HttpResponse("Hello, World!")
     return render(request, 'home.html')
 
 
@@ -15,21 +16,34 @@ def view_reservation(request):
     bookings = Reservation.objects.all() 
     context = {"bookings": bookings}  
     return render(request, "view_reservation.html", context)
-    
+
+
+
+
 @login_required
-def reservation(request):
+def reservation(request):    
     if request.method == 'POST':
         form = ReservationsForm(request.POST)
         if form.is_valid():
             reservation = form.save(commit=False)
-            reservation.user = request.user  
-            reservation.name = request.user.username  
+            reservation.user = request.user 
+             
             reservation.save()
-            return redirect('view_reservation')
+            return redirect('view_reservation')   
     else:
-        initial_data = {'user': request.user.username} if request.user.is_authenticated else {}  
+        # Initialize the form with the logged-in user's username
+        form = ReservationsForm(initial={'user': request.user})
     context = {'form': form}
     return render(request, 'reservation.html', context)
+    # else:
+    #     form = ReservationsForm(initial={'user': request.user.username} if request.user.is_authenticated else {})
+    # context = {'form': form}
+    # print(form.errors)
+    # return render(request, 'reservation.html', context)
+
+
+
+
 
 def account(request):
     # Some logic here

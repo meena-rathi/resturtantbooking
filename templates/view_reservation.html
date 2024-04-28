@@ -15,16 +15,18 @@
                         <th scope="col">Date</th>
                         <th scope="col">Time</th>
                         <th scope="col">Contact</th>
+                        <th scope="col">people</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for booking in bookings %}
                     <tr>
-                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.user }}</td>
                         <td>{{ booking.email }}</td>
                         <td>{{ booking.date }}</td>
                         <td>{{ booking.time }}</td>
-                        <td>{{ booking.contact }}</td>
+                        <td>{{ booking.number_people}}</td>
+                        <td>{{ booking.contact_number }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
