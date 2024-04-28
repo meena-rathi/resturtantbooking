@@ -20,28 +20,45 @@ def view_reservation(request):
 
 
 
+# @login_required
+# def reservation(request):    
+#     if request.method == 'POST':
+#         form = ReservationsForm(request.POST)
+#         if form.is_valid():
+#             reservation = form.save(commit=False)
+#             reservation.user = request.user 
+             
+#             reservation.save()
+#             return redirect('view_reservation')   
+
+#     else:
+#         form = ReservationsForm(initial={'user': request.user} if request.user.is_authenticated else {})
+#     context = {'form': form}
+#     print(form.errors)
+#     return render(request, 'reservation.html', context)
+
+
+
 @login_required
-def reservation(request):    
+def reservation(request):  
+    print("Inside reservation view")   
     if request.method == 'POST':
         form = ReservationsForm(request.POST)
         if form.is_valid():
             reservation = form.save(commit=False)
-            reservation.user = request.user 
-             
+            reservation.user = request.user
             reservation.save()
-            return redirect('view_reservation')   
+            print("Redirecting to view reservation page...") 
+            return redirect('view_reservation') 
+        else:
+            print(form.errors)   
     else:
-        # Initialize the form with the logged-in user's username
-        form = ReservationsForm(initial={'user': request.user})
+        # Pass username as initial data
+        initial_data = {'user': request.user} if request.user.is_authenticated else {}
+        form = ReservationsForm(initial=initial_data)
     context = {'form': form}
+    print(form.errors)
     return render(request, 'reservation.html', context)
-    # else:
-    #     form = ReservationsForm(initial={'user': request.user.username} if request.user.is_authenticated else {})
-    # context = {'form': form}
-    # print(form.errors)
-    # return render(request, 'reservation.html', context)
-
-
 
 
 

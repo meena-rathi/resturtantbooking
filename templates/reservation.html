@@ -14,9 +14,14 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                {{ form.user.label_tag }}
-                                {{ form.user }}
+                                <label for="username">Username</label>
+                                <!-- Display logged-in user's username -->
+                                <input type="text" id="username" name="username" value="{{ request.user.username }}" readonly>
                             </div>
+                            <!-- <div class="mb-3">
+                                {{ form.user.label_tag }}
+                                {{ form.user.username }}
+                            </div> -->
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
