@@ -21,20 +21,26 @@ function handleScroll() {
 }
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+   
+//     function redirectToReservation() {
+       
+//         window.location.href = "reservation"; // Update with the correct URL of your reservation page
+   
+//     }
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to handle reservation button click
+    
     function redirectToReservation() {
-        // Redirect to the reservation page
-        window.location.href = "reservation"; // Update with the correct URL of your reservation page
+       
+        window.location.href = "reservation";
     }
 
-    // Add click event listener to reservation button
-    var reservationButton = document.getElementById('reservation-btn');
-    if (reservationButton) {
-        reservationButton.addEventListener('click', redirectToReservation);
-    } else {
-        console.error("Reservation button not found.");
-    }
+    // $(function() {
+    //     // Initialize datepicker and set minDate to today
+    //     $(".datepicker").datepicker({
+    //         minDate: 0  // Disable past dates
+    //     });
+    // });
     // var lunchItems = [
     //     { image: "{% static 'lunch2.jpg' %}", description: "Lunch Item 1 Descriptionoipo" },
     //     { image: "{% static 'image/lunch2.jpg' %}", description: "Lunch Item 2 Description" },

@@ -4,12 +4,11 @@
 {% block content %}
 
 <div class="container">
-    <section class="d-flex flex-column justify-content-center bg-black align-items-center text-center py-5">
+    <section class="d-flex flex-column justify-content-center align-items-center text-center py-5">
         <h2>Reservation Form</h2>
         <div id="booking-form-container" class="row">
             <div class="col-md-8 offset-md-2">
                 <form id="booking-form" method="post" class="border p-4 rounded">
-
                     {% csrf_token %}
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -35,12 +34,18 @@
                             <div class="mb-3">
                                 {{ form.contact_number.label_tag }}
                                 {{ form.contact_number }}
+                                {% if form.contact_number.errors %}
+                                <span style="color: red;">{{ form.contact_number.errors }}</span>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 {{ form.number_people.label_tag }}
                                 {{ form.number_people }}
+                                {% if form.number_people.errors %}
+                                <span style="color: red;">{{ form.number_people.errors }}</span>
+                            {% endif %}
                             </div>
                         </div>
                     </div>

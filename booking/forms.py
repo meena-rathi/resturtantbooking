@@ -17,7 +17,37 @@ class ReservationsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.initial['date'] = date.today()
-        
+
+    def clean_date(self):
+        date = self.cleaned_data.get('date')
+        if date < date.today():
+            raise forms.ValidationError("Date cannot be in the past.")
+        return date
+
+    def clean_contact_number(self):
+        contact_number = self.cleaned_data.get('contact_number')
+    
+    # Check for spaces before or after the contact number
+        if contact_number.strip() != contact_number:
+             raise forms.ValidationError("Spaces before or after the contact number are not allowed.")
+
+    # Remove spaces from before and after the contact number
+        contact_number_stripped = contact_number.strip()
+
+    # Check if the contact number consists only of digits
+        if not contact_number_stripped.replace(" ", "").isdigit():
+            raise forms.ValidationError("Contact number must contain only digits.")
+
+    # Check if the contact number is empty
+        if not contact_number_stripped:
+            raise forms.ValidationError("Contact number cannot be empty.")
+
+    # Check if the contact number is the string "either"
+        if contact_number_stripped.lower() == "either":
+            raise forms.ValidationError("String 'either' is not allowed.")
+
+        return contact_number
+ 
 # from django import forms
 # from .models import Reservation
 # from django.contrib.auth.models import User

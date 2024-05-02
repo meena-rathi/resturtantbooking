@@ -3,19 +3,18 @@ body {
     padding: 0;
     background: url("../image/cover.jpg") no-repeat bottom right fixed;
     background-size: cover;
-    /* background-color: gray; */
-
-
-   
-
+}
+.modal.fade .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 html, body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
-
-
 .section {
     height: 100vh;
     background-attachment: fixed;
@@ -50,8 +49,7 @@ html, body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;    
 } 
 
 .button-container {
@@ -69,12 +67,10 @@ html, body {
 
 #section .nav-tabs .nav-link {
     /* background-color: rgb(241, 243, 243); */
-    color: #fff;
-    font-size: 25px;
+    color: #d13030;
+    font-size: 10px;
     margin: 5px;
-
 }
-
 #section .nav-tabs .nav-link.active {
     background-color:  #3d0202;
 
@@ -125,19 +121,15 @@ html, body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     align-items: center;
-    /* Center items horizontally */
 }
 
 .nav-item{
-    /* background-color: rgb(83, 88, 88); */
     color: #fff;
     font-size: 20;
 }
  .container h2{
-    color: #fff;
-    
+    color: #fff;  
 }
 
 #booking-form-container .form-control {
@@ -154,7 +146,6 @@ html, body {
 #booking-form-container .btn-primary {
     padding: 10px 20px; 
     font-size: 18px; 
- 
 }
 
 #booking-form-container {
@@ -183,11 +174,15 @@ html, body {
 .navbar-nav .nav-link:hover {
     color: #a52a2a;
 }
-/* Change color of navbar links on hover */
 .nav-item .nav-link:hover {
     color: #a52a2a;
 }
-
-
+#booking-form {
+    background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+}
+.login{
+    background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+    color: #fff;  
+}
 
 

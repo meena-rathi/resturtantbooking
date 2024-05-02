@@ -1,9 +1,10 @@
-
-from django.shortcuts import render, redirect
+from django.utils import timezone
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import ReservationsForm
 from .models import Reservation
 from datetime import date
+from .models import Reservation
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -60,7 +61,12 @@ def reservation(request):
     print(form.errors)
     return render(request, 'reservation.html', context)
 
-
+def delete_booking(request, booking_id):
+    reservation = get_object_or_404(Reservation, id=booking_id)
+    if request.method == 'POST':
+        reservation.delete()
+        return redirect('view_reservation') 
+    return redirect('view_reservation')
 
 def account(request):
     # Some logic here
@@ -73,12 +79,20 @@ def menu(request):
         {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
         {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
         {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
     ]
     dinner_items = [
         {"image": "image/dinner1.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
         {"image": "image/dinner2.webp", "description": "Pasta with vegetables and spicy sauces 10"},
         {"image": "image/dinner3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
         {"image": "image/dinner4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
     ]
 
     # Define dinner items
