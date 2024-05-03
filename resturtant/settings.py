@@ -19,7 +19,7 @@ SECRET_KEY = "django-insecure-y0=9xai!1@2majw6apv78e1$cmn0cds)ay2yjoxj-lvp+84(*2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-meenarathi-resturtantbo-rtyxv915t5m.ws-eu112.gitpod.io']
+ALLOWED_HOSTS = ['8000-meenarathi-resturtantbo-rtyxv915t5m.ws-eu110.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com']
 

@@ -1,27 +1,28 @@
 {% extends "account/base_entrance.html" %}
-
 {% load i18n %}
 {% load allauth account %}
+
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
+
 {% block content %} 
-<div class="container justify-content-center color-white">
+<div class="container justify-content-center transparent-background text-white">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3 class="text-center color-white bold">{% trans "Sign In" %}</h3>
-            <p class="text-center color-white bold">{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <div class="col-md-8 mt-5 offset-md-2"> <!-- Added mt-5 for top margin -->
+            <h3 class="text-center color-white bold">{% trans "Sign In" %}</h3>    
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+    <div class="row justify-content-center"> <!-- Center the form -->
+        <div class="col-md-6 mt-4"> <!-- Reduced number of columns for the form container -->
             <form class="login border p-4 rounded" method="POST"  action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-primary btn-signup float-right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-primary btn-signup float-right" type="submit" style="background-color: brown; border-color: brown;">{% trans "Sign In" %}</button>
+                <p class="text-center color-white bold">{% blocktrans %}If you have not created an account yet, then <a class="link" style="color: brown; font-size: 20px; font-weight: bold;" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
             </form>
         </div>
     </div>
