@@ -1,10 +1,10 @@
 from django.utils import timezone
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404,reverse
 from django.http import HttpResponse
 from .forms import ReservationsForm
 from .models import Reservation
 from datetime import date
-from .models import Reservation
+
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -67,6 +67,21 @@ def delete_booking(request, booking_id):
         reservation.delete()
         return redirect('view_reservation') 
     return redirect('view_reservation')
+
+@login_required
+def edit_reservation(request, booking_id):
+    reservation = get_object_or_404(Reservation, id=booking_id)
+    if request.method == 'POST':
+        form = ReservationsForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('view_reservation')
+    else:
+        # If it's a GET request (initial form rendering), populate the form with reservation data
+        form = ReservationsForm(instance=reservation)
+
+    # Render the template with the form and reservation data
+    return render(request, 'edit_reservation.html', {'form': form, 'booking': reservation})
 
 def account(request):
     # Some logic here

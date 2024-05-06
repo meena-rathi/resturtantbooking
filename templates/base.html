@@ -14,9 +14,8 @@
 <body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-black text-white">
-        <div class="container-fluid">
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-gray text-white">
+        <div class="container-fluid">    
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,10 +29,12 @@
                         <a class="nav-link" href="{% url 'reservation' %}">Reservation</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_reservation' %}">view Reservation</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
-                    {% if user.is_authenticated %}
-                    
+                    {% if user.is_authenticated %}                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -45,11 +46,9 @@
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-                </ul>
-                
+                </ul>                
             </div>
         </div>
- 
 </nav>
     <!-- Content -->
     <div class="container">
@@ -69,13 +68,36 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="footer mt-auto py-3  bg-gray text-white">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+    <footer class="footer mt-auto py-3 bg-gray text-white bg-black">
+        <div class="container mt-3 text-center">
+            <div class="row">
+                <div class="col-4">
+                    <h4>Addrees</h4>
+                    <p>hi</p>
+
+                </div>
+                <div class="col-4">
+                    <h2>Follw Us</h2>
+                    <p class="m-0 text-white"><a href="/menu" class="text-white">Menu</a></p>
+                    <p class="m-0 text-white"><a href="/reservation" class="text-white">Reservation</a></p>
+                </div>
+
+                <div class="col-4">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" aria-label="Go to our home page">Home</a></li>
+                        <li><a href="{% url 'reservation' %}" aria-label="Go to our about page">What we offer</a></li>
+                       
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
     </footer>
+
+   
+
     <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

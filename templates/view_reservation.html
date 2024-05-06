@@ -10,6 +10,7 @@
             <table class="table table-striped"> <!-- Add Bootstrap table classes -->
                 <thead>
                     <tr>
+                        <th scope="col">id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date</th>
@@ -22,6 +23,7 @@
                 <tbody>
                     {% for booking in bookings %}
                     <tr>
+                        <td>{{ booking.id }}</td>
                         <td>{{ booking.user.username }}</td>
                         <td>{{ booking.email }}</td>
                         <td>{{ booking.date }}</td>
@@ -29,10 +31,12 @@
                         <td>{{ booking.number_people}}</td>
                         <td>{{ booking.contact_number }}</td>
                         <td>
+                          <a href="{% url 'edit_reservation' booking_id=booking.id %}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{% url 'delete_booking' booking.id %}" method="post" style="display: inline;" onsubmit="return confirmDelete()">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
+                            
                         </td>
                     </tr>
                     {% endfor %}
@@ -42,7 +46,7 @@
     </section>
 </div>
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
