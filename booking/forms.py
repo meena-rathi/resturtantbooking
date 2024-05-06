@@ -18,11 +18,11 @@ class ReservationsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.initial['date'] = date.today()
 
-    def clean_date(self):
-        date = self.cleaned_data.get('date')
-        if date < date.today():
-            raise forms.ValidationError("Date cannot be in the past.")
-        return date
+    # def clean_date(self):
+    #     date = self.cleaned_data.get('date')
+    #     if date < date.today():
+    #         raise forms.ValidationError("Date cannot be in the past.")
+    #     return date
 
     def clean_contact_number(self):
         contact_number = self.cleaned_data.get('contact_number')

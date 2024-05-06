@@ -13,11 +13,18 @@ def home(request):
 
 
 # Create your views here.
+@login_required
 def view_reservation(request):
-    bookings = Reservation.objects.all() 
+    bookings = Reservation.objects.filter(user=request.user) 
     context = {"bookings": bookings}  
     return render(request, "view_reservation.html", context)
 
+# Create your views here.
+
+# def view_reservation(request):
+#     bookings = Reservation.objects.all
+#     context = {"bookings": bookings}  
+#     return render(request, "view_reservation.html", context)
 
 
 
@@ -77,10 +84,7 @@ def edit_reservation(request, booking_id):
             form.save()
             return redirect('view_reservation')
     else:
-        # If it's a GET request (initial form rendering), populate the form with reservation data
         form = ReservationsForm(instance=reservation)
-
-    # Render the template with the form and reservation data
     return render(request, 'edit_reservation.html', {'form': form, 'booking': reservation})
 
 def account(request):
