@@ -13,6 +13,14 @@
             <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
     </section>
-</div>
 
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let dateInputs = document.querySelectorAll('input[type="date"]');
+        dateInputs.forEach(function(input) {
+            input.min = new Date().toISOString().split('T')[0];
+        });
+    });
+</script>
 {% endblock %}

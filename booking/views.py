@@ -5,6 +5,7 @@ from .forms import ReservationsForm
 from .models import Reservation
 from datetime import date
 from django.contrib import messages 
+from django.http import JsonResponse 
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -22,27 +23,49 @@ def view_reservation(request):
 
 @login_required
 def reservation(request):  
-    print("Inside reservation view")   
     if request.method == 'POST':
         form = ReservationsForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             existing_reservation = Reservation.objects.filter(email=email).exists()
             if existing_reservation:
-                # messages.error(request, 'You already have a reservation with this email.')
-                return redirect('reservation')
+                return JsonResponse({'exists': True})  # Return JSON response indicating email exists
             else:
                 reservation = form.save(commit=False)
                 reservation.user = request.user
                 reservation.save()
                 messages.success(request, 'Reservation successfully created.')
                 return redirect('view_reservation') 
+            
         else:
             messages.error(request, 'Form submission failed. Please check the errors.')
     else:
         initial_data = {'user': request.user} if request.user.is_authenticated else {}
         form = ReservationsForm(initial=initial_data)
+    
     return render(request, 'reservation.html', {'form': form})
+# def reservation(request):  
+#     print("Inside reservation view")   
+#     if request.method == 'POST':
+#         form = ReservationsForm(request.POST)
+#         if form.is_valid():
+#             email = form.cleaned_data['email']
+#             existing_reservation = Reservation.objects.filter(email=email).exists()
+#             if existing_reservation:
+#                 # messages.error(request, 'You already have a reservation with this email.')
+#                 return redirect('reservation')
+#             else:
+#                 reservation = form.save(commit=False)
+#                 reservation.user = request.user
+#                 reservation.save()
+#                 messages.success(request, 'Reservation successfully created.')
+#                 return redirect('view_reservation') 
+#         else:
+#             messages.error(request, 'Form submission failed. Please check the errors.')
+#     else:
+#         initial_data = {'user': request.user} if request.user.is_authenticated else {}
+#         form = ReservationsForm(initial=initial_data)
+#     return render(request, 'reservation.html', {'form': form})
 
 def delete_booking(request, booking_id):
     reservation = get_object_or_404(Reservation, id=booking_id)
