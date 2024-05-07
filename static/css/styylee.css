@@ -4,11 +4,22 @@ body {
     background: url("../image/cover.jpg") no-repeat bottom right fixed;
     background-size: cover;
 }
-.modal.fade .modal-dialog {
+.alert-container {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #f8d7da;
+    color: #725b1c;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 100%;
 }
 html, body {
     overflow-x: hidden;

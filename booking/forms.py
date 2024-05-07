@@ -9,14 +9,15 @@ class ReservationsForm(forms.ModelForm):
         fields = ['email', 'contact_number', 'number_people', 'date', 'time']
         widgets = {
             # 'user': forms.TextInput(attrs={'readonly': True, 'style': 'text-transform: uppercase;'}),
-            'date': forms.DateInput(attrs={'type': 'date'}),
+            'date': forms.DateInput(attrs={'type': 'date' , 'id': 'id_date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
             'number_people': forms.TextInput(attrs={}),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.initial['date'] = date.today()
+        self.fields['date'].initial = date.today() 
+        #self.initial['date'] = date.today()
 
     # def clean_date(self):
     #     date = self.cleaned_data.get('date')

@@ -17,10 +17,6 @@
                                 <!-- Display logged-in user's username -->
                                 <input type="text" id="username" name="username" value="{{ request.user.username }}" readonly>
                             </div>
-                            <!-- <div class="mb-3">
-                                {{ form.user.label_tag }}
-                                {{ form.user.username }}
-                            </div> -->
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -35,7 +31,7 @@
                                 {{ form.contact_number.label_tag }}
                                 {{ form.contact_number }}
                                 {% if form.contact_number.errors %}
-                                <span style="color: red;">{{ form.contact_number.errors }}</span>
+                                    <span style="color: red;">{{ form.contact_number.errors }}</span>
                                 {% endif %}
                             </div>
                         </div>
@@ -44,8 +40,8 @@
                                 {{ form.number_people.label_tag }}
                                 {{ form.number_people }}
                                 {% if form.number_people.errors %}
-                                <span style="color: red;">{{ form.number_people.errors }}</span>
-                            {% endif %}
+                                    <span style="color: red;">{{ form.number_people.errors }}</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -54,6 +50,8 @@
                             <div class="mb-3">
                                 {{ form.date.label_tag }}
                                 {{ form.date }}
+                                <!-- <label for="date">Date</label>
+                                <input type="date" id="id_date" name="date"> -->
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -65,13 +63,13 @@
                     </div>
                     <div class="text-center">
                         <div class="button-container">
-                        <!-- <a href="{% url 'view_reservation' %}"><button type="submit">Submit</button></a> -->
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
-    </section>
-</div>
+       </section>
+       </div>
+
 {% endblock %}
