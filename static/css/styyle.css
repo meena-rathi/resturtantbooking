@@ -4,6 +4,10 @@ body {
     background: url("../image/cover.jpg") no-repeat bottom right fixed;
     background-size: cover;
 }
+.header-footer-bg {
+    background-color: rgba(49, 27, 27, 0.8);/* Fully transparent background color */
+    color: #fff; /* White text color */
+}
 .alert-container {
     position: fixed;
     top: 50%;
