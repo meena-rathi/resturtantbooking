@@ -11,6 +11,9 @@
 //         console.error("Element with ID 'id_date' not found.");
 //         return; 
 //     }
+function showAlert(message) {
+    alert(message);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
@@ -34,15 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.exists) {
                 // Display JavaScript alert
-                alert('You already have a reservation with this email.');
+                showAlert('You already have a reservation with this email.');
             } else {
                 window.location.href = '/view_reservation.html';
-                
-                //form.submit();
             }
         })
         .catch(error => {
@@ -58,10 +64,42 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Booking form not found.");
     }
 
+    // Event listener for input on the contact number field
+    var contactNumberField = document.getElementById('id_contact_number');
+    if (contactNumberField) {
+        contactNumberField.addEventListener('input', function(event) {
+            var contactNumber = event.target.value.trim(); // Remove leading and trailing spaces
+            var errorSpan = document.getElementById('contact-number-error');
 
-    // Function to display alert message
-    function showAlert(message) {
-        alert(message);
+            // Check if the contact number has spaces
+            if (contactNumber.includes(' ')) {
+                // Display error message next to contact number field
+                errorSpan.textContent = 'Spaces are not in the contact number.';
+                errorSpan.style.color = 'red';
+                return;
+            }
+
+            // Check if the contact number consists only of digits
+            if (!contactNumber.match(/^\d+$/)) {
+                // Display error message next to contact number field
+                errorSpan.textContent = 'Contact number must contain only digits.';
+                errorSpan.style.color = 'red';
+                return;
+            }
+
+            // Check if the contact number has less than 10 digits
+            if (contactNumber.length < 10) {
+                // Display error message next to contact number field
+                errorSpan.textContent = 'Contact number is incomplete.';
+                errorSpan.style.color = 'red';
+                return;
+            }
+
+            // If all validations pass, clear any previous error message
+            errorSpan.textContent = '';
+        });
+    } else {
+        console.error("Contact number field not found.");
     }
 
     // Event listener for input on the date field

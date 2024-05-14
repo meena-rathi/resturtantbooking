@@ -25,14 +25,41 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <!-- <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 {{ form.contact_number.label_tag }}
                                 {{ form.contact_number }}
+                                
                                 {% if form.contact_number.errors %}
+                                <span id="contact-number-error" style="color: red;">{{ form.contact_number.errors }}</span>
                                     <span style="color: red;">{{ form.contact_number.errors }}</span>
                                 {% endif %}
+                            </div>
+                        </div> -->
+                        
+                        <!-- <div class="col-md-6">
+                            <div class="mb-3">
+                            {{ form.contact_number.label_tag }}
+                            {{ form.contact_number }}
+                            
+                            {% if form.contact_number.errors %}
+                                {% for error in form.contact_number.errors %}
+                                    <span style="color: red;">{{ error }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        </div> -->
+                        <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                
+                                <label for="id_contact_number">Contact Number:</label>
+                                <input type="text" name="contact_number" id="id_contact_number" maxlength="11" required>
+                                
+                              
+                                <span id="contact-number-error" style="color: red;"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
