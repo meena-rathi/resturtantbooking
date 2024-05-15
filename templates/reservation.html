@@ -2,7 +2,6 @@
 {% block title %}Reservation Page{% endblock %}
 
 {% block content %}
-
 <div class="container">
     <section class="d-flex flex-column justify-content-center align-items-center text-center py-5">
         <h2>Reservation Form</h2>
@@ -14,7 +13,6 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="username">Username</label>
-                                <!-- Display logged-in user's username -->
                                 <input type="text" id="username" name="username" value="{{ request.user.username }}" readonly>
                             </div>
                         </div>
@@ -22,43 +20,15 @@
                             <div class="mb-3">
                                 {{ form.email.label_tag }}
                                 {{ form.email }}
+                                <span id="email-error" style="color: red;"></span>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row mb-3">
+                    <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 {{ form.contact_number.label_tag }}
                                 {{ form.contact_number }}
-                                
-                                {% if form.contact_number.errors %}
-                                <span id="contact-number-error" style="color: red;">{{ form.contact_number.errors }}</span>
-                                    <span style="color: red;">{{ form.contact_number.errors }}</span>
-                                {% endif %}
-                            </div>
-                        </div> -->
-                        
-                        <!-- <div class="col-md-6">
-                            <div class="mb-3">
-                            {{ form.contact_number.label_tag }}
-                            {{ form.contact_number }}
-                            
-                            {% if form.contact_number.errors %}
-                                {% for error in form.contact_number.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-
-                        </div> -->
-                        <div class="row mb-3">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                
-                                <label for="id_contact_number">Contact Number:</label>
-                                <input type="text" name="contact_number" id="id_contact_number" maxlength="11" required>
-                                
-                              
                                 <span id="contact-number-error" style="color: red;"></span>
                             </div>
                         </div>
@@ -66,9 +36,7 @@
                             <div class="mb-3">
                                 {{ form.number_people.label_tag }}
                                 {{ form.number_people }}
-                                {% if form.number_people.errors %}
-                                    <span style="color: red;">{{ form.number_people.errors }}</span>
-                                {% endif %}
+                                <span id="number-people-error" style="color: red;"></span>
                             </div>
                         </div>
                     </div>
@@ -77,14 +45,14 @@
                             <div class="mb-3">
                                 {{ form.date.label_tag }}
                                 {{ form.date }}
-                                <!-- <label for="date">Date</label>
-                                <input type="date" id="id_date" name="date"> -->
+                                <span id="date-error" style="color: red;"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 {{ form.time.label_tag }}
                                 {{ form.time }}
+                                <span id="time-error" style="color: red;"></span>
                             </div>
                         </div>
                     </div>
@@ -96,7 +64,8 @@
                 </form>
             </div>
         </div>
-       </section>
-       </div>
+    </section>
+</div>
+
 
 {% endblock %}
