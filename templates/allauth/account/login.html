@@ -9,12 +9,12 @@
 {% block content %} 
 <div class="container justify-content-center transparent-background text-white">
     <div class="row">
-        <div class="col-md-8 mt-5 offset-md-2"> <!-- Added mt-5 for top margin -->
+        <div class="col-md-8 mt-5 offset-md-2 py-1"> <!-- Added mt-5 for top margin -->
             <h3 class="text-center color-white bold">{% trans "Sign In" %}</h3>    
         </div>
     </div>
     <div class="row justify-content-center"> <!-- Center the form -->
-        <div class="col-md-6 mt-4"> <!-- Reduced number of columns for the form container -->
+        <div class="col-md-6 py-1 mb-5"> <!-- Reduced number of columns for the form container -->
             <form class="login border p-4 rounded" method="POST"  action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}

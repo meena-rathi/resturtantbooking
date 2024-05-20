@@ -16,8 +16,7 @@ function showAlert(message) {
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
-
-    // Function to handle form submission
+   // Function to handle form submission
     function handleFormSubmission(event) {
         event.preventDefault(); // Prevent default form submission
 
@@ -128,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('booking-form');
     if (form) {
         form.addEventListener('submit', handleFormSubmission);
-    } else {
-        console.error("Booking form not found.");
-    }
+    // } else {
+    //     console.error("Booking form not found.");
+    // }
 
     // Event listener for input on the contact number field
     var contactNumberField = document.getElementById('id_contact_number');
@@ -162,12 +161,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 errorSpan.style.color = 'red';
                 return;
             }
-
             // If all validations pass, clear any previous error message
             errorSpan.textContent = '';
         });
     } else {
-        console.error("Contact number field not found.");
+        // console.error("Contact number field not found.");
     }
 
     // Event listener for input on the date field
@@ -185,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Booking form not found.");
             return;
         }
-
         console.log('Form:', form); // Moved inside the function
         console.log('Date Input:', dateInput); // Moved inside the function
 
@@ -218,4 +215,5 @@ document.addEventListener('DOMContentLoaded', function() {
     function confirmDelete() {
         return confirm("ARE YOU SURE YOU WANT TO DELETE THIS RESERVATION?".toUpperCase());
     }
-});
+
+    });
