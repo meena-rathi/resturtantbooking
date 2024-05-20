@@ -29,7 +29,7 @@ def reservation(request):
             email = form.cleaned_data['email']
             existing_reservation = Reservation.objects.filter(email=email).exists()
             if existing_reservation:
-                return JsonResponse({'exists': True})  # Return JSON response indicating email exists
+                return JsonResponse({'exists': True})  
             else:
                 reservation = form.save(commit=False)
                 reservation.user = request.user
@@ -93,24 +93,24 @@ def account(request):
          
 def menu(request):
     lunch_items = [
-        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces $20"},
+        {"image": "image/lunch2.jpg", "description": "spicy Biryani with vegetables $20"},
+        {"image": "image/lunch3.jpg", "description": "Cheeze paratha $15"},
+        {"image": "image/lunch4.jpg", "description": "White rice with curry $20"},
+        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces $20"},
+        {"image": "image/lunch2.jpg", "description": "spicy Biryani with vegetables $20"},
+        {"image": "image/lunch3.jpg", "description": "Cheeze paratha $15"},
+        {"image": "image/lunch4.jpg", "description": "White rice with curry $20"},
     ]
     dinner_items = [
-        {"image": "image/dinner1.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/dinner2.webp", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/dinner3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/dinner4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch2.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch3.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
-        {"image": "image/lunch4.jpg", "description": "Pasta with vegetables and spicy sauces 10"},
+        {"image": "image/dinner1.jpg", "description": "Idli with chutney $20"},
+        {"image": "image/dinner2.webp", "description": "Mix vegetables with Rice $20"},
+        {"image": "image/dinner3.jpg", "description": "Masals Dosa $10"},
+        {"image": "image/dinner4.jpg", "description": "Naan Daal $20"},
+        {"image": "image/lunch1.webp", "description": "Pasta with vegetables and spicy sauces $20"},
+        {"image": "image/lunch2.jpg", "description": "spicy Biryani with vegetables $20"},
+        {"image": "image/lunch3.jpg", "description": "Cheeze paratha $15"},
+        {"image": "image/lunch4.jpg", "description": "White rice with curry $20"},
     ]
 
     # Define dinner items

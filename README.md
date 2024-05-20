@@ -18,3 +18,14 @@ The user storys in my GitHub project are as follows:
 * As a site user, I can see my reservation.
 * As a site user, I can edit or delete my reservation.
 * As a site admin, I can create, delete, and update reservations.
+
+## Fonts ##
+The 'Lato' font family, a sans-serif typeface, has been selected for use across the resturtant project. Font Colors: The color scheme for text is primarily brown, gray and white.
+
+## Screenshots of Finished Website ##
+
+## Features ##
+
+The navigation bar is active and highlights the current page you are on, making navigation easier.
+
+The navigation bar is responsive, making it convenient for visitors using smaller screens.

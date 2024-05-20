@@ -16,7 +16,7 @@
             <form method="post" action="{{ action_url }}"  class="login border p-4 rounded transparent-form">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <!-- <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> -->
                  <!-- <button class="btn btn-primary btn-signup float-right" type="submit" style="background-color: brown; border-color: brown;">{% trans "Sign In" %}</button> -->
                 <button type="submit" style="background-color: brown; border-color: brown;" class="btn btn-primary btn-block mt-3">{% trans "Sign Up" %}</button>
             </form>
