@@ -24,6 +24,10 @@ The 'Lato' font family, a sans-serif typeface, has been selected for use across 
 
 ## Screenshots of Finished Website ##
 
+![signup](/documentation/images/signup.JPG)
+
+![home](/documentation/images/home1.JPG)
+
 ## Features ##
 
 The navigation bar is active and highlights the current page you are on, making navigation easier.

@@ -112,6 +112,16 @@ def menu(request):
         {"image": "image/lunch3.jpg", "description": "Cheeze paratha $15"},
         {"image": "image/lunch4.jpg", "description": "White rice with curry $20"},
     ]
+    drink_items = [
+        {"image": "image/drink1.webp", "description": "Idli with chutney $20"},
+        {"image": "image/drink2.webp", "description": "Mix vegetables with Rice $20"},
+        {"image": "image/drink3.jpg", "description": "Masals Dosa $10"},
+        {"image": "image/drink4.jpg", "description": "Naan Daal $20"},
+        {"image": "image/drink5.jpg", "description": "Pasta with vegetables and spicy sauces $20"},
+        {"image": "image/drink6.jpg", "description": "spicy Biryani with vegetables $20"},
+        {"image": "image/lunch3.jpg", "description": "Cheeze paratha $15"},
+        {"image": "image/lunch4.jpg", "description": "White rice with curry $20"},
+    ]
 
     # Define dinner items
 
@@ -119,6 +129,7 @@ def menu(request):
     context = {
         'lunch_items': lunch_items,
         'dinner_items': dinner_items,
+        'drink_items': drink_items,
    
     }
     return render(request, 'menu.html', context)

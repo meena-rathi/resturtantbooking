@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100 main-bg">
@@ -29,9 +30,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'reservation' %}">Reservation</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_reservation' %}">view Reservation</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
@@ -82,8 +81,8 @@
                     <ul class="list-unstyled d-flex justify-content-evenly">
                         <li><a href="https://facebook.com" rel="noopener" target="_blank"
                                 aria-label="Go to our facebook, opens in a new tab"><i class="bi bi-facebook text-white fs-4"></i></a></li>
-                        <li><a href="https://twitter.com" rel="noopener" target="_blank"
-                                aria-label="Go to our twitter, opens in a new tab"><i class="bi bi-twitter-x text-white"></i></a></li>
+                                <li><a href="https://twitter.com" rel="noopener" target="_blank"
+                                    aria-label="Go to our facebook, opens in a new tab"><i class="bi bi-twitter text-white fs-4"></i></a></li>
                         <li><a href="https://instagram.com" rel="noopener" target="_blank"
                                 aria-label="Go to our instagram, opens in a new tab"><i class="bi bi-instagram text-white fs-4"></i></a></li>
                     </ul>
@@ -102,7 +101,7 @@
         <hr class="my-0" style="border-top: 1px solid rgba(255, 255, 255, 0.5);">
         <!-- Copyright notice -->
         <div class="container text-center">
-            <small>&copy; 2048 Your Company Name. All Rights Reserved.</small>
+            <small>&copy; 2024 Meena's Restaurant</small>
         </div>
     </footer>
     <!-- jQuery library -->
@@ -117,7 +116,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Your custom JavaScript code -->
-    <script src="{% static 'js/scriipt.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 
     <!-- Script for closing alerts -->
     <!-- <script>
