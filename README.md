@@ -27,6 +27,10 @@ The 'Lato' font family, a sans-serif typeface, has been selected for use across 
 ![signup](/documentation/images/signup.JPG)
 
 ![home](/documentation/images/home1.JPG)
+![Dinner](/documentation/images/dinner.JPG)
+![Lunch](/documentation/images/lunchmenu.JPG)
+![Drink](/documentation/images/drink.JPG)
+![home](/documentation/images/home1.JPG)
 
 ## Features ##
 

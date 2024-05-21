@@ -5,6 +5,13 @@ body {
     background-size: cover;
     font-family: sans-serif;
 }
+.logo-background {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 20px; /* Adjust the size as needed */
+    color: #ffffff; /* Adjust the color as needed */
+    font-weight: bold; /* Make it bold, if desired */
+}
 .header-footer-bg {
     background-color: rgba(49, 27, 27, 0.8);/* Fully transparent background color */
     color: #fff; /* White text color */
