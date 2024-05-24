@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("{% static 'image/cover.jpg' %}") no-repeat bottom right fixed;
+    /* background: url("{% static 'image/cover.jpg' %}") no-repeat bottom right fixed; */
+    background: url("/static/image/cover.jpg") no-repeat bottom right fixed;
     background-size: cover;
     font-family: sans-serif;
 }
