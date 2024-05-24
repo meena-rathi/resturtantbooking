@@ -22,9 +22,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['resturtantbooking-f16cfcc27fc2.herokuapp.com']
+ALLOWED_HOSTS = ['resturtantbooking-f16cfcc27fc2.herokuapp.com', '8000-meenarathi-resturtantbo-rtyxv915t5m.ws-eu114.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com', 'https://8000-meenarathi-resturtantbo-rtyxv915t5m.ws-eu114.gitpod.io']
 
 
 # Application definition
