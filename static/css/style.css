@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("{% static 'image/cover.jpg' %}") no-repeat bottom right fixed;
+    /* background: url("{% static 'image/cover.jpg' %}") no-repeat bottom right fixed; */
+    background: url(" https://res.cloudinary.com/duln4nndb/image/upload/v1716544447/static/image/cover.76806334a6b8.jpg")no-repeat bottom right fixed;
     background-size: cover;
     font-family: sans-serif;
 }
