@@ -16,12 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-y0=9xai!1@2majw6apv78e1$cmn0cds)ay2yjoxj-lvp+84(*2"
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
-# ALLOWED_HOSTS = ['8000-meenarathi-resturtantbo-rtyxv915t5m.ws-eu114.gitpod.io']
-ALLOWED_HOSTS = ['https://resturtantbooking-f16cfcc27fc2.herokuapp.com/']
+ALLOWED_HOSTS = ['resturtantbooking-f16cfcc27fc2.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-meena-rathi-resturtantbo-igik8c7ash.us1.codeanyapp.com']
 
