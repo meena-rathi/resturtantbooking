@@ -179,21 +179,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 errorSpan.style.color = 'red';
                 return;
             }
-
-            // Check if the contact number consists only of digits
-            if (!contactNumber.match(/^\d+$/)) {
-                errorSpan.textContent = 'Contact number must contain only digits.';
+    
+            // Check if the contact number starts with a '+' or is all digits
+            if (contactNumber.startsWith('+')) {
+                // Check if the contact number consists only of digits after the '+'
+                if (!contactNumber.slice(1).match(/^\d+$/)) {
+                    errorSpan.textContent = 'Contact number must contain only digits after the "+" sign.';
+                    errorSpan.style.color = 'red';
+                    return;
+                }
+            } else {
+                // Check if the contact number consists only of digits
+                if (!contactNumber.match(/^\d+$/)) {
+                    errorSpan.textContent = 'Contact number must contain only digits.';
+                    errorSpan.style.color = 'red';
+                    return;
+                }
+            }
+    
+            // Check if the contact number has at least 13 characters including the '+'
+            if (contactNumber.length < 13) {
+                errorSpan.textContent = 'Contact number is incomplete. It must be at least 13 characters long.';
                 errorSpan.style.color = 'red';
                 return;
             }
-
-            // Check if the contact number has less than 10 digits
-            if (contactNumber.length < 10) {
-                errorSpan.textContent = 'Contact number is incomplete.';
-                errorSpan.style.color = 'red';
-                return;
-            }
-
+    
             // If all validations pass, clear any previous error message
             errorSpan.textContent = '';
         });

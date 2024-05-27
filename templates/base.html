@@ -45,9 +45,11 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_reservation' %}">view Reservation</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'reservation' %}">Reservation</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
@@ -133,7 +135,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Your custom JavaScript code -->
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/scrippt.js' %}"></script>
 
     <!-- Script for closing alerts -->
     <!-- <script>
