@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
+
+    // Function to handle form submission
     function handleFormSubmission(event) {
-        event.preventDefault(); 
+        event.preventDefault(); // Prevent default form submission
+
+        // Find the form element
         var form = document.getElementById('booking-form');
         if (!form) {
             console.error("Booking form not found.");
@@ -10,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate all fields
         var isValid = validateForm(form);
+
         if (isValid) {
             // Serialize form data
             var formData = new FormData(form);
@@ -61,9 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var contactNumberField = form.elements['contact_number'];
         var contactNumber = contactNumberField.value.trim();
         var contactNumberError = document.getElementById('contact-number-error');
-        if (contactNumber.includes(' ') || !contactNumber.match(/^\d+$/) || contactNumber.length < 10) {
+        var contactNumberValidationResult = validateContactNumber(contactNumber);
+        if (contactNumberValidationResult !== '') {
             isValid = false;
-            contactNumberError.textContent = 'Invalid contact number.';
+            contactNumberError.textContent = contactNumberValidationResult;
             contactNumberError.style.color = 'red'; // Display error in red
         } else {
             contactNumberError.textContent = '';
@@ -125,6 +131,18 @@ document.addEventListener('DOMContentLoaded', function() {
         return ''; // Empty string means email is valid
     }
 
+    function validateContactNumber(contactNumber) {
+        var contactNumberPattern = /^\+?(\d{10,15})$/; // Allow optional '+' sign and digits between 10 to 15 in length
+
+        if (!contactNumberPattern.test(contactNumber)) {
+            return 'Invalid contact number format. Ensure it has 10 to 15 digits, optionally starting with a "+" sign.';
+        }
+        if (contactNumber.includes(' ')) {
+            return 'Spaces are not allowed in the contact number.';
+        }
+        return ''; // Empty string means contact number is valid
+    }
+
     function showAlert(message) {
         var alert = document.createElement('div');
         alert.className = 'alert alert-warning custom-alert alert-dismissible fade show';
@@ -182,39 +200,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validate only if submission has been attempted
             if (submitAttempted) {
-                // Check if the contact number has spaces
-                if (contactNumber.includes(' ')) {
-                    errorSpan.textContent = 'Spaces are not allowed in the contact number.';
-                    errorSpan.style.color = 'red';
+                var contactNumberValidationResult = validateContactNumber(contactNumber);
+                if (contactNumberValidationResult !== '') {
+                    errorSpan.textContent = contactNumberValidationResult;
+                    errorSpan.style.color = 'red'; // Display error in red
                     event.preventDefault(); // Prevent form submission
                     return;
-                }
-
-                // Check if the contact number consists only of digits
-                if (!contactNumber.match(/^\d+$/)) {
-                    errorSpan.textContent = 'Contact number must contain only digits.';
-                    errorSpan.style.color = 'red';
-                    event.preventDefault(); // Prevent form submission
-                    return;
-                }
-
-                // Check if the contact number starts with a '+' sign
-                if (contactNumber.startsWith('+')) {
-                    // Check if the contact number has at least 13 characters
-                    if (contactNumber.length < 13) {
-                        errorSpan.textContent = 'Contact number is incomplete. It must be at least 13 characters long.';
-                        errorSpan.style.color = 'red';
-                        event.preventDefault(); // Prevent form submission
-                        return;
-                    }
-                } else {
-                    // Check if the contact number has at least 12 digits
-                    if (contactNumber.length < 12) {
-                        errorSpan.textContent = 'Contact number is incomplete. It must be at least 12 digits long.';
-                        errorSpan.style.color = 'red';
-                        event.preventDefault(); // Prevent form submission
-                        return;
-                    }
                 }
             }
         });
