@@ -19,13 +19,13 @@ class ReservationsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['date'].initial = date.today() 
         #self.initial['date'] = date.today()
-    def clean_contact_number(self):
-        contact_number = self.cleaned_data.get('contact_number')
-        if ' ' in contact_number:
-            raise forms.ValidationError("Spaces are not allowed in the contact number.")
-        if len(contact_number) < 10:
-            raise forms.ValidationError("Contact number is incomplete.")
-        return contact_number
+    # def clean_contact_number(self):
+    #     contact_number = self.cleaned_data.get('contact_number')
+    #     if ' ' in contact_number:
+    #         raise forms.ValidationError("Spaces are not allowed in the contact number.")
+    #     if len(contact_number) < 10:
+    #         raise forms.ValidationError("Contact number is incomplete.")
+    #     return contact_number
     # def clean_date(self):
     #     date = self.cleaned_data.get('date')
     #     if date < date.today():
