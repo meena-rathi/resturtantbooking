@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # ForeignKey to the User model
     email = models.EmailField(max_length=30, null=False, blank=False)
-    contact_number = models.CharField(max_length=15, null=False)
+    contact_number = models.CharField(max_length=14, null=False)
     number_people = models.IntegerField(null=True)
     date = models.DateField(null=False)
     time = models.TimeField(null=False)

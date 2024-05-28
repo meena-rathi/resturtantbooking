@@ -135,10 +135,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var contactNumberPattern = /^\+?(\d{10,15})$/; // Allow optional '+' sign and digits between 10 to 15 in length
 
         if (!contactNumberPattern.test(contactNumber)) {
-            return 'Invalid contact number format. Ensure it has 10 to 15 digits, optionally starting with a "+" sign.';
-        }
-        if (contactNumber.includes(' ')) {
-            return 'Spaces are not allowed in the contact number.';
+            if (contactNumber.trim() === '') {
+                return 'Contact number is required.';
+            } else if (contactNumber.includes(' ')) {
+                return 'Spaces are not allowed in the contact number.';
+            } else if (!contactNumber.match(/^\+?\d+$/)) {
+                return 'Contact number can only contain digits and optional "+" sign.';
+            } else if (contactNumber.length < 10 || contactNumber.length > 15) {
+                return 'Contact number must be between 10 to 15 digits.';
+            }
+            return 'Invalid contact number format.';
         }
         return ''; // Empty string means contact number is valid
     }

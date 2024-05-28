@@ -35,7 +35,7 @@ def reservation(request):
                 reservation.user = request.user
                 reservation.save()
                 messages.success(request, 'Reservation successfully created.')
-                return HttpResponseRedirect('/view_reservation/')
+                return redirect('view_reservation')
               
             
         else:
