@@ -202,12 +202,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var contactNumberField = document.getElementById('id_contact_number');
             var contactNumber = contactNumberField.value.trim();
             var errorSpan = document.getElementById('contact-number-error');
-            var contactNumberError = document.getElementById('contact-number-error-edit');
-
+        
 
             // Reset error message
             errorSpan.textContent = '';
-            contactNumberError.textContent ='';
+     
 
             // Validate only if submission has been attempted
             if (submitAttempted) {
@@ -215,8 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (contactNumberValidationResult !== '') {
                     errorSpan.textContent = contactNumberValidationResult;
                     errorSpan.style.color = 'red'; // Display error in red
-                    contactNumberError.textContent = contactNumberValidationResult;
-                    contactNumberError.style.color = 'red';
                     event.preventDefault(); // Prevent form submission
                     return;
                 }
@@ -228,66 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contactNumberField.addEventListener('input', function(event) {
             submitAttempted = false;
         });
-    }
-
-//edit
-
-    var form = document.getElementById('edit-booking-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Perform validation
-        var emailField = form.elements['email'];
-        var contactNumberField = form.elements['contact_number'];
-
-        var isValid = true;
-
-        // Validate email
-        var email = emailField.value.trim();
-        var emailError = document.getElementById('email-error');
-        if (!validateEmail(email)) {
-            emailError.textContent = 'Invalid email format';
-            emailError.style.color = 'red';
-            isValid = false;
-        } else if (!validateEmailDomain(email)) {
-            emailError.textContent = 'Invalid email domain';
-            emailError.style.color = 'red';
-            isValid = false;
-        } else {
-            emailError.textContent = '';
-        }
-
-        // Validate contact number
-        var contactNumber = contactNumberField.value.trim();
-        var contactNumberError = document.getElementById('contact-number-error-edit');
-        if (!validateContactNumber(contactNumber)) {
-            contactNumberError.textContent = 'Invalid contact number format';
-            contactNumberError.style.color = 'red';
-            isValid = false;
-        } else {
-            contactNumberError.textContent = '';
-        }
-
-        // If all validations pass, submit the form
-        if (isValid) {
-            form.submit();
-        }
-    });
-
-    function validateEmail(email) {
-        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    function validateEmailDomain(email) {
-        var domain = email.split('@')[1];
-        var allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com']; // Add allowed domains here
-        return allowedDomains.includes(domain);
-    }
-
-    function validateContactNumber(contactNumber) {
-        var contactNumberPattern = /^\+?(\d{10,15})$/;
-        return contactNumberPattern.test(contactNumber) && !contactNumber.includes(' ');
     }
 
     // Event listener for input on the date field

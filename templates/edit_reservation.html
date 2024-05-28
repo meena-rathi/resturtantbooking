@@ -6,7 +6,7 @@
 <div class="container">
     <section class="d-flex flex-column justify-content-center align-items-center text-center py-5 text-white">
         <h2>Edit Reservation</h2>
-        <form id="edit-booking-form" method="post" class="border p-4 rounded" action="{% url 'edit_reservation' booking_id=booking.id %}">
+        <form method="post" class="border p-4 rounded" action="{% url 'edit_reservation' booking_id=booking.id %}">
             {% csrf_token %}
             {{ form.as_p }}
             <div id="contact-number-error-edit" class="error-message"></div>
