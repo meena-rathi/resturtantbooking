@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contactNumberError.textContent = '';
         }
 
+
         // Validate number of people
         var numberPeopleField = form.elements['number_people'];
         var numberPeople = numberPeopleField.value.trim();
@@ -201,9 +202,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var contactNumberField = document.getElementById('id_contact_number');
             var contactNumber = contactNumberField.value.trim();
             var errorSpan = document.getElementById('contact-number-error');
+            var contactNumberError = document.getElementById('contact-number-error-edit');
+
 
             // Reset error message
             errorSpan.textContent = '';
+            contactNumberError.textContent ='';
 
             // Validate only if submission has been attempted
             if (submitAttempted) {
@@ -211,6 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (contactNumberValidationResult !== '') {
                     errorSpan.textContent = contactNumberValidationResult;
                     errorSpan.style.color = 'red'; // Display error in red
+                    contactNumberError.textContent = contactNumberValidationResult;
+                    contactNumberError.style.color = 'red';
                     event.preventDefault(); // Prevent form submission
                     return;
                 }
