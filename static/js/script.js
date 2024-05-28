@@ -230,6 +230,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+
+    //edit
+
+
+    var contactForm = document.getElementById('booking-form');
+    var submitAttempted = false; // Flag to track form submission attempts
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            submitAttempted = true; // Set flag to true upon form submission
+
+            var contactNumberField = document.getElementById('id_contact_number');
+            var contactNumber = contactNumberField.value.trim();
+            var contactNumberError = document.getElementById('contact-number-error-edit');
+
+
+        
+            contactNumberError.textContent ='';
+
+            // Validate only if submission has been attempted
+            if (submitAttempted) {
+                var contactNumberValidationResult = validateContactNumber(contactNumber);
+                if (contactNumberValidationResult !== '') {
+                   
+                    contactNumberError.textContent = contactNumberValidationResult;
+                    contactNumberError.style.color = 'red';
+                    event.preventDefault(); // Prevent form submission
+                    return;
+                }
+            }
+        });
+
+        // Reset the submitAttempted flag when user interacts with the contact number field
+        var contactNumberField = document.getElementById('id_contact_number');
+        contactNumberField.addEventListener('input', function(event) {
+            submitAttempted = false;
+        });
+    }
     // Event listener for input on the date field
     document.body.addEventListener('input', function(event) {
         if (event.target.id === 'id_date') {
