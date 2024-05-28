@@ -46,36 +46,4 @@ class ReservationsForm(forms.ModelForm):
         domain = email.split('@')[1]
         if domain.lower() not in allowed_domains:
             raise forms.ValidationError(f"Email domain must be one of the following: {', '.join(allowed_domains)}")
-
         return email
-    # def clean_date(self):
-    #     date = self.cleaned_data.get('date')
-    #     if date < date.today():
-    #         raise forms.ValidationError("Date cannot be in the past.")
-    #     return date
-
-   
- 
-# from django import forms
-# from .models import Reservation
-# from django.contrib.auth.models import User
-
-# class ReservationsForm(forms.ModelForm):
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         if self.instance and self.instance.user:
-#             self.fields['user'].initial = self.instance.user.username
-#         else:
-#             self.fields['user'].initial = self.initial.get('user', '')
-
-        
-#         self.fields['user'].widget = forms.TextInput(attrs={'readonly': True, 'value': self.fields['user'].initial})
-
-#     class Meta:
-#         model = Reservation
-#         fields = ['user', 'email', 'contact_number', 'number_people', 'date', 'time']
-#         widgets = {
-#             'date': forms.DateInput(attrs={'type': 'date'}),
-#             'time': forms.TimeInput(attrs={'type': 'time'}),
-#             'number_people': forms.TextInput(attrs={}),
-#         }

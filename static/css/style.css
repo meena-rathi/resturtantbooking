@@ -6,6 +6,10 @@ body {
     background-size: cover;
     font-family: sans-serif;
 }
+.error-message
+{
+    color: red;
+}
 .logo-background {
     font-family: 'Roboto', sans-serif;
     font-style: italic;

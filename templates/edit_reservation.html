@@ -16,9 +16,9 @@
             <div id="date-error" class="error-message"></div>
             <div id="time-error" class="error-message"></div> -->
             {% for field in form %}
-            {% if field.errors %}
-                <div class="error-message">{{ field.errors }}</div>
-            {% endif %}
+                {% for error in field.errors %}
+                    <div class="error-message">{{ error }}</div>
+                {% endfor %}
             {% endfor %}
 
             <button type="submit" class="btn btn-primary">Save Changes</button>
