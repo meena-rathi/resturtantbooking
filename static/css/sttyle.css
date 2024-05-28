@@ -214,3 +214,44 @@ html, body {
     background-color: brown;
     border-color: brown;
 }
+.custom-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.custom-confirm-box {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.custom-confirm-buttons {
+    margin-top: 20px;
+}
+
+.custom-confirm-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-confirm-button.confirm {
+    background-color: #dc3545;
+    color: white;
+}
+
+.custom-confirm-button.cancel {
+    background-color: #6c757d;
+    color: white;
+}

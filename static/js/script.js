@@ -9,10 +9,6 @@
 //         console.error("Element with ID 'id_date' not found.");
 //         return; 
 //     }
-function showAlert(message) {
-    alert(message);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
 
@@ -143,6 +139,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return ''; // Empty string means email is valid
     }
 
+    function showAlert(message) {
+        var alert = document.createElement('div');
+        alert.className = 'alert alert-warning custom-alert alert-dismissible fade show';
+        alert.setAttribute('role', 'alert');
+        alert.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+
+        document.body.appendChild(alert);
+
+        // Auto-dismiss alert after 5 seconds
+        setTimeout(function() {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(function() {
+                alert.remove();
+            }, 150);
+        }, 5000);
+    }
+
     // Add event listener for form submission
     var form = document.getElementById('booking-form');
     if (form) {
@@ -166,46 +180,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event listener for input on the contact number field
-    var contactNumberField = document.getElementById('id_contact_number');
-    if (contactNumberField) {
-        contactNumberField.addEventListener('input', function(event) {
-            var contactNumber = event.target.value.trim();
+    var contactForm = document.getElementById('contact-form');
+    var submitAttempted = false; // Flag to track form submission attempts
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            submitAttempted = true; // Set flag to true upon form submission
+
+            var contactNumberField = document.getElementById('id_contact_number');
+            var contactNumber = contactNumberField.value.trim();
             var errorSpan = document.getElementById('contact-number-error');
 
-            // Check if the contact number has spaces
-            if (contactNumber.includes(' ')) {
-                errorSpan.textContent = 'Spaces are not allowed in the contact number.';
-                errorSpan.style.color = 'red';
-                return;
-            }
-    
-            // Check if the contact number starts with a '+' or is all digits
-            if (contactNumber.startsWith('+')) {
-                // Check if the contact number consists only of digits after the '+'
-                if (!contactNumber.slice(1).match(/^\d+$/)) {
-                    errorSpan.textContent = 'Contact number must contain only digits after the "+" sign.';
+            // Reset error message
+            errorSpan.textContent = '';
+
+            // Validate only if submission has been attempted
+            if (submitAttempted) {
+                // Check if the contact number has spaces
+                if (contactNumber.includes(' ')) {
+                    errorSpan.textContent = 'Spaces are not allowed in the contact number.';
                     errorSpan.style.color = 'red';
+                    event.preventDefault(); // Prevent form submission
                     return;
                 }
-            } else {
+
                 // Check if the contact number consists only of digits
                 if (!contactNumber.match(/^\d+$/)) {
                     errorSpan.textContent = 'Contact number must contain only digits.';
                     errorSpan.style.color = 'red';
+                    event.preventDefault(); // Prevent form submission
                     return;
                 }
+
+                // Check if the contact number starts with a '+' sign
+                if (contactNumber.startsWith('+')) {
+                    // Check if the contact number has at least 13 characters
+                    if (contactNumber.length < 13) {
+                        errorSpan.textContent = 'Contact number is incomplete. It must be at least 13 characters long.';
+                        errorSpan.style.color = 'red';
+                        event.preventDefault(); // Prevent form submission
+                        return;
+                    }
+                } else {
+                    // Check if the contact number has at least 12 digits
+                    if (contactNumber.length < 12) {
+                        errorSpan.textContent = 'Contact number is incomplete. It must be at least 12 digits long.';
+                        errorSpan.style.color = 'red';
+                        event.preventDefault(); // Prevent form submission
+                        return;
+                    }
+                }
             }
-    
-            // Check if the contact number has at least 13 characters including the '+'
-            if (contactNumber.length < 13) {
-                errorSpan.textContent = 'Contact number is incomplete. It must be at least 13 characters long.';
-                errorSpan.style.color = 'red';
-                return;
-            }
-    
-            // If all validations pass, clear any previous error message
-            errorSpan.textContent = '';
+        });
+
+        // Reset the submitAttempted flag when user interacts with the contact number field
+        var contactNumberField = document.getElementById('id_contact_number');
+        contactNumberField.addEventListener('input', function(event) {
+            submitAttempted = false;
         });
     }
 
@@ -233,18 +264,47 @@ document.addEventListener('DOMContentLoaded', function() {
             var deleteForm = document.getElementById('delete-form-' + bookingId);
             console.log('Delete form:', deleteForm); // Move the log here
             if (deleteForm) {
-                var confirmation = confirmDelete();
-                if (confirmation) {
-                    deleteForm.submit();
-                }
+                showCustomConfirm(function(confirmation) {
+                    if (confirmation) {
+                        showAlert("Reservation deleted successfully."); // Show alert on deletion
+                        deleteForm.submit();
+                    }
+                });
             } else {
                 console.error('Delete form not found for booking ID:', bookingId);
             }
         });
     });
 
-    // Function to confirm deletion
-    function confirmDelete() {
-        return confirm("ARE YOU SURE YOU WANT TO DELETE THIS RESERVATION?".toUpperCase());
+    // Function to show custom confirmation dialog
+    function showCustomConfirm(callback) {
+        var overlay = document.createElement('div');
+        overlay.className = 'custom-confirm-overlay';
+
+        var confirmBox = document.createElement('div');
+        confirmBox.className = 'custom-confirm-box';
+        confirmBox.innerHTML = `
+            <p>ARE YOU SURE YOU WANT TO DELETE THIS RESERVATION?</p>
+            <div class="custom-confirm-buttons">
+                <button class="custom-confirm-button confirm">Yes</button>
+                <button class="custom-confirm-button cancel">No</button>
+            </div>
+        `;
+
+        overlay.appendChild(confirmBox);
+        document.body.appendChild(overlay);
+
+        var confirmButton = confirmBox.querySelector('.confirm');
+        var cancelButton = confirmBox.querySelector('.cancel');
+
+        confirmButton.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+            callback(true);
+        });
+
+        cancelButton.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+            callback(false);
+        });
     }
 });
