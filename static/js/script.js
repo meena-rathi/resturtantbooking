@@ -42,9 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
+                var emailError = document.getElementById('email-error');
                 if (data.exists) {
-                    // Display JavaScript alert
-                    showAlert('You already have a reservation with this email.');
+                    // Display error message in red
+                    emailError.textContent = 'This email is already registered.';
+                    emailError.style.color = 'red';
                 } else {
                     window.location.href = '/view_reservation.html';
                 }
