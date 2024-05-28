@@ -28,7 +28,7 @@ class ReservationsForm(forms.ModelForm):
             raise forms.ValidationError("Contact number is required.")
         
         if ' ' in contact_number:
-            raise forms.ValidationError("Spaces are not allowed in the contact number.")
+            raise forms.ValidationError("Spaces are not allowed contact number.")
 
         if not contact_number_pattern.match(contact_number):
             raise forms.ValidationError("Invalid contact number format. Contact number can only contain digits and an optional '+' sign, and must be between 10 to 15 digits.")
