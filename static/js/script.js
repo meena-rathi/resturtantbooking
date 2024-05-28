@@ -1,22 +1,7 @@
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     console.log('DOMContentLoaded event fired.'); 
-//     let form = document.getElementById('booking-form');
-//     let dateInput = document.querySelector('#id_date');
-
-//     if (!dateInput) {
-//         console.log('Date input:', dateInput);
-//         console.error("Element with ID 'id_date' not found.");
-//         return; 
-//     }
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
-
-    // Function to handle form submission
     function handleFormSubmission(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Find the form element
+        event.preventDefault(); 
         var form = document.getElementById('booking-form');
         if (!form) {
             console.error("Booking form not found.");
@@ -25,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate all fields
         var isValid = validateForm(form);
-
         if (isValid) {
             // Serialize form data
             var formData = new FormData(form);
@@ -48,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     emailError.textContent = 'This email is already registered.';
                     emailError.style.color = 'red';
                 } else {
-                    window.location.href = '/view_reservation.html';
+                    window.location.href = '/view_reservation';
                 }
             })
             .catch(error => {
@@ -182,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    var contactForm = document.getElementById('contact-form');
+    var contactForm = document.getElementById('booking-form');
     var submitAttempted = false; // Flag to track form submission attempts
 
     if (contactForm) {
