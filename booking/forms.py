@@ -34,6 +34,20 @@ class ReservationsForm(forms.ModelForm):
             raise forms.ValidationError("Invalid contact number format. Contact number can only contain digits and an optional '+' sign, and must be between 10 to 15 digits.")
 
         return contact_number
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        email_pattern = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
+        allowed_domains = ['gmail.com', 'yahoo.com', 'hotmail.com']  # Add allowed domains here
+
+        if not email_pattern.match(email):
+            raise forms.ValidationError("Invalid email format.")
+
+        domain = email.split('@')[1]
+        if domain.lower() not in allowed_domains:
+            raise forms.ValidationError(f"Email domain must be one of the following: {', '.join(allowed_domains)}")
+
+        return email
     # def clean_date(self):
     #     date = self.cleaned_data.get('date')
     #     if date < date.today():
