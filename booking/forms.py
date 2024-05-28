@@ -12,7 +12,7 @@ class ReservationsForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'type': 'date' , 'id': 'id_date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
             'number_people': forms.TextInput(attrs={}),
-            'contact_number': forms.TextInput(attrs={'id': 'id_contact_number', 'pattern': '^(\+\d{1,3})?\d{10,15}$', 'title': 'Please enter a valid contact number (10 to 15 digits).'}),
+            'contact_number': forms.TextInput(attrs={'id': 'id_contact_number'}),
         }
 
     def __init__(self, *args, **kwargs):
