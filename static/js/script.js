@@ -230,45 +230,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+//edit
 
+    var form = document.getElementById('edit-booking-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
 
-    //edit
+        // Perform validation
+        var emailField = form.elements['email'];
+        var contactNumberField = form.elements['contact_number'];
 
+        var isValid = true;
 
-    var contactForm = document.getElementById('booking-form');
-    var submitAttempted = false; // Flag to track form submission attempts
+        // Validate email
+        var email = emailField.value.trim();
+        var emailError = document.getElementById('email-error');
+        if (!validateEmail(email)) {
+            emailError.textContent = 'Invalid email format';
+            emailError.style.color = 'red';
+            isValid = false;
+        } else if (!validateEmailDomain(email)) {
+            emailError.textContent = 'Invalid email domain';
+            emailError.style.color = 'red';
+            isValid = false;
+        } else {
+            emailError.textContent = '';
+        }
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            submitAttempted = true; // Set flag to true upon form submission
+        // Validate contact number
+        var contactNumber = contactNumberField.value.trim();
+        var contactNumberError = document.getElementById('contact-number-error-edit');
+        if (!validateContactNumber(contactNumber)) {
+            contactNumberError.textContent = 'Invalid contact number format';
+            contactNumberError.style.color = 'red';
+            isValid = false;
+        } else {
+            contactNumberError.textContent = '';
+        }
 
-            var contactNumberField = document.getElementById('id_contact_number');
-            var contactNumber = contactNumberField.value.trim();
-            var contactNumberError = document.getElementById('contact-number-error-edit');
+        // If all validations pass, submit the form
+        if (isValid) {
+            form.submit();
+        }
+    });
 
-
-        
-            contactNumberError.textContent ='';
-
-            // Validate only if submission has been attempted
-            if (submitAttempted) {
-                var contactNumberValidationResult = validateContactNumber(contactNumber);
-                if (contactNumberValidationResult !== '') {
-                   
-                    contactNumberError.textContent = contactNumberValidationResult;
-                    contactNumberError.style.color = 'red';
-                    event.preventDefault(); // Prevent form submission
-                    return;
-                }
-            }
-        });
-
-        // Reset the submitAttempted flag when user interacts with the contact number field
-        var contactNumberField = document.getElementById('id_contact_number');
-        contactNumberField.addEventListener('input', function(event) {
-            submitAttempted = false;
-        });
+    function validateEmail(email) {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
+
+    function validateEmailDomain(email) {
+        var domain = email.split('@')[1];
+        var allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com']; // Add allowed domains here
+        return allowedDomains.includes(domain);
+    }
+
+    function validateContactNumber(contactNumber) {
+        var contactNumberPattern = /^\+?(\d{10,15})$/;
+        return contactNumberPattern.test(contactNumber) && !contactNumber.includes(' ');
+    }
+
     // Event listener for input on the date field
     document.body.addEventListener('input', function(event) {
         if (event.target.id === 'id_date') {
