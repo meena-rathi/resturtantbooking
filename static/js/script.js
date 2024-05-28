@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     emailError.textContent = 'This email is already registered.';
                     emailError.style.color = 'red';
                 } else {
+                    console.log("Redirecting to view_reservation");
                     window.location.href = '/view_reservation';
                 }
             })

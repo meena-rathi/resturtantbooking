@@ -9,6 +9,7 @@
         <form method="post" class="border p-4 rounded" action="{% url 'edit_reservation' booking_id=booking.id %}">
             {% csrf_token %}
             {{ form.as_p }}
+            <div id="contact-number-error-edit" class="error-message"></div>
             <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
     </section>

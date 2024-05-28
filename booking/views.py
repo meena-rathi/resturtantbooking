@@ -36,8 +36,6 @@ def reservation(request):
                 reservation.save()
                 messages.success(request, 'Reservation successfully created.')
                 return redirect('view_reservation')
-              
-            
         else:
             messages.error(request, 'Form submission failed. Please check the errors.')
     else:
