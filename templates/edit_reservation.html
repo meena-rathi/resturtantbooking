@@ -9,7 +9,12 @@
         <form method="post" class="border p-4 rounded" action="{% url 'edit_reservation' booking_id=booking.id %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <div id="contact-number-error-edit" class="error-message">{{ form.contact_number.errors }}</div>
+            <!-- <div id="contact-number-error-edit" class="error-message">{{ form.contact_number.errors }}</div> -->
+            <div id="email-error" class="error-message"></div>
+            <div id="contact-number-error" class="error-message">{{ form.contact_number.errors }}</div>
+            <div id="number-people-error" class="error-message"></div>
+            <div id="date-error" class="error-message"></div>
+            <div id="time-error" class="error-message"></div>
             <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
     </section>

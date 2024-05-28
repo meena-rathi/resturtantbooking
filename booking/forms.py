@@ -21,10 +21,17 @@ class ReservationsForm(forms.ModelForm):
         #self.initial['date'] = date.today()
     def clean_contact_number(self):
         contact_number = self.cleaned_data.get('contact_number')
+        contact_number_pattern = re.compile(r'^\+?\d{10,15}$')
+
+        if not contact_number:
+            raise forms.ValidationError("Contact number is required.")
+        
         if ' ' in contact_number:
             raise forms.ValidationError("Spaces are not allowed in the contact number.")
-        if len(contact_number) < 12:
-            raise forms.ValidationError("Contact number is incomplete.")
+
+        if not contact_number_pattern.match(contact_number):
+            raise forms.ValidationError("Invalid contact number format. Contact number can only contain digits and an optional '+' sign, and must be between 10 to 15 digits.")
+
         return contact_number
     # def clean_date(self):
     #     date = self.cleaned_data.get('date')
