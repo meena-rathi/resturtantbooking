@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Display error message in red
                     emailError.textContent = 'This email is already registered.';
                     emailError.style.color = 'red';
-                } else {
-                    console.log("Redirecting to view_reservation");
-                    window.location.href = '/view_reservation';
+                } else if (data.success) {
+                    console.log("Reservation successfully created. Redirecting to view_reservation");
+                    window.location.href = '/view_reservation/';
                 }
             })
             .catch(error => {
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    var form = document.getElementById('booking-form');
+    if (form) {
+        form.addEventListener('submit', handleFormSubmission);
+    }
     function validateForm(form) {
         var isValid = true;
 

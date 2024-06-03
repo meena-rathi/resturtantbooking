@@ -45,11 +45,16 @@ Pervious user:
 
 ### Entity Relational Diagram
 
-![Erd](documentation/entity_relational_diagram/erd.png)
+I have designed the ERD Diagram on th excel sheet.
+
+![Erd](documentation/images/entity-diagram.JPG)
 
 
 ## Fonts ##
-The 'Lato' font family, a sans-serif typeface, has been selected for use across the resturtant project. Font Colors: The color scheme for text is primarily brown, gray and white.
+
+The 'Lato' font family, a sans-serif typeface, has been selected for use across the resturtant project. 
+
+Font Colors: The color scheme for text is primarily brown, gray and white.
 
 ## Screenshots of Finished Website ##
 
@@ -94,6 +99,16 @@ This project was created using Django 4.2.1 and Bootstrap 5.3.
 The additional libraries used can be found in the requirements.txt file.
 
 CSS
+
+## Testing
+
+### Validation
+
+Python was validated using [PEP8 CI python linter](https://pep8ci.herokuapp.com/), with no errors or warnings.
+
+CSS was validated using [jigsaw](https://jigsaw.w3.org/css-validator/#validate_by_input), with no errors or warnings.
+
+HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_uri), with no errors or warnings.
 
 ### Manual Testing
 
