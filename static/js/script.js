@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log("Reservation successfully created. Redirecting to view_reservation");
                     window.location.href = '/view_reservation/';
                 }
+                else {
+                    // Handle unexpected response format
+                    console.error('Unexpected response format:', data);
+                }
+            
             })
             .catch(error => {
                 console.error('Error:', error);

@@ -20,7 +20,6 @@ def view_reservation(request):
     context = {"bookings": bookings}  
     return render(request, "view_reservation.html", context)
 
-
 @login_required
 def reservation(request):  
     if request.method == 'POST':
@@ -29,15 +28,18 @@ def reservation(request):
             email = form.cleaned_data['email']
             existing_reservation = Reservation.objects.filter(email=email).exists()
             if existing_reservation:
-                return JsonResponse({'exists': True})  
+                # Display error message for existing email
+                messages.error(request, 'This email is already registered.')
+                return JsonResponse({'exists': True})
             else:
                 reservation = form.save(commit=False)
                 reservation.user = request.user
                 reservation.save()
                 messages.success(request, 'Reservation successfully created.')
-                return redirect('view_reservation')
+                return JsonResponse({'success': True})  # Return success response
         else:
             messages.error(request, 'Form submission failed. Please check the errors.')
+            return JsonResponse({'success': False, 'errors': form.errors})  # Return form errors
     else:
         initial_data = {'user': request.user} if request.user.is_authenticated else {}
         form = ReservationsForm(initial=initial_data)
