@@ -19,7 +19,7 @@ class ReservationsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['date'].initial = date.today() 
-        #self.initial['date'] = date.today()
+
     def clean_contact_number(self):
         contact_number = self.cleaned_data.get('contact_number')
         contact_number_pattern = re.compile(r'^\+?\d{10,15}$')
@@ -38,7 +38,7 @@ class ReservationsForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         email_pattern = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
-        allowed_domains = ['gmail.com', 'yahoo.com', 'hotmail.com']  # Add allowed domains here
+        allowed_domains = ['gmail.com', 'yahoo.com', 'hotmail.com']
 
         if not email_pattern.match(email):
             raise forms.ValidationError("Invalid email format.")
@@ -47,3 +47,13 @@ class ReservationsForm(forms.ModelForm):
         if domain.lower() not in allowed_domains:
             raise forms.ValidationError(f"Email domain must be one of the following: {', '.join(allowed_domains)}")
         return email
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date_selected = cleaned_data.get('date')
+        current_date = date.today()
+
+        if date_selected < current_date:
+            self.add_error('date', "Please select a date in the future.")
+
+        return cleaned_data
