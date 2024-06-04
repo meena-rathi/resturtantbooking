@@ -172,7 +172,7 @@ HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_u
 | --- | --- | --- | --- | --- |
 | Logged User| Delete the Reservation from view Reservation page | Logged User | Delete Reservation | Pass |
 
-#### Delete Reservation
+#### Edit Reservation
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -180,3 +180,19 @@ HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_u
 | Edit  | All filed contain the valid Data | Edit | No error Data updated | Pass |
 | Edit  | If any filed is not valid | Edit |  error Data has not been updated | Pass |
 
+## Fixed Bugs ##
+
+1. When user made the reservtion the reservation page is not redirecting.
+2. Fixed the email validation.
+3. Fixed Edit date validation.
+4. Fixed contact number validation.
+
+
+## Credits ##
+
+1. https://stackoverflow.com/questions/31548373/django-1-8-django-crispy-forms-is-there-a-simple-easy-way-of-implementing-a
+2. https://pixabay.com/ 
+3.  To deisgn Menu (https://www.google.com/search?q=how+to+design+menu+card+for+restaurant+bootstrap+5+code&sca_esv=60b997825705a04a&rlz=1C1CHBD_enPK955PK955&biw=1366&bih=607&sxsrf=ACQVn09aseLtTNtj54HsY9BRUGUIJjSdmA%3A1712300129767&ei=YaAPZvqnLr-Txc8PgZicsAg&oq=how+to+design+menu+card+for+restaurant+bootstrap+5+co&gs_lp=Egxnd3Mtd2l6LXNlcnAiNWhvdyB0byBkZXNpZ24gbWVudSBjYXJkIGZvciByZXN0YXVyYW50IGJvb3RzdHJhcCA1IGNvKgIIATIFECEYoAEyBRAhGKABMgQQIRgVSKYfULkKWOoRcAF4AZABAJgBhwGgAbkCqgEDMi4xuAEDyAEA-AEBmAIEoALKAsICChAAGEcY1gQYsAOYAwCIBgGQBgaSBwMzLjGgB84Q&sclient=gws-wiz-serp#fpstate=ive&vld=cid:c092b7c7,vid:KRENd1sv3tE,st:0)
+4. [I think therefore I blog](https://github.com/Code-Institute-Solutions/blog)
+5. https://stackoverflow.com/questions/23956288/django-all-auth-email-required
+6. https://docs.djangoproject.com/en/4.2/topics/http/urls/
