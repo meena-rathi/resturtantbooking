@@ -43,6 +43,22 @@ Pervious user:
 
 ### Wireframes
 
+These are wire frames of my website.
+
+![ogIn](documentation/wireframe/Signin.png)
+
+![SignUp](documentation/wireframe/signup.png)
+
+![Home](documentation/wireframe/Home.png)
+
+![menu](documentation/wireframe/menu.png)
+
+![Reservation](documentation/wireframe/reservation.png)
+
+![Edit Reservation](documentation/wireframe/Editreservation.png)
+
+![View Reservation](documentation/wireframe/Viewreservation.png)
+
 ### Entity Relational Diagram
 
 I have designed the ERD Diagram on th excel sheet.

@@ -55,7 +55,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">SignUP</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">SignUp</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
@@ -67,14 +67,14 @@
 </nav>
     <!-- Content -->
      <!-- Signed in status -->
-     {% if user.is_authenticated %}
+     <!-- {% if user.is_authenticated %}
      <div class="row mx-1">
          <div class="col-md-12">
              <p class="text-end">Signed in as: {{ user.username }}</p>
          </div>
      </div>
      {% endif %}
- 
+  -->
      <!-- Django messages -->
      <div class="container">
          <div class="row">
