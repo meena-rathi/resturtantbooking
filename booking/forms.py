@@ -53,7 +53,10 @@ class ReservationsForm(forms.ModelForm):
         date_selected = cleaned_data.get('date')
         current_date = date.today()
 
+        if date_selected is None:
+            raise forms.ValidationError("Date is required")
+
         if date_selected < current_date:
-            self.add_error('date', "Please select a date in the future.")
+            raise forms.ValidationError("The date cannot be in the past")
 
         return cleaned_data

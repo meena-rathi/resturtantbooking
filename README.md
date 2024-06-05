@@ -1,5 +1,6 @@
 ## Introduction ##
 
+I've developed a restaurant table reservation website. Users can view the menu for lunch and dinner. They can book reservations for a specific date and time, ensuring they can't select past dates. Only future and current dates are selectable. Additionally, users can delete and edit their reservations.
 
 ## User Personas ##
 
@@ -7,9 +8,10 @@ A family wants to spent time together with delicious food.
 A person wants to go with his firends for dinner or lunch. 
 
 ## User Stories ##
-I have designed the user stories outlined in my [GitHub project](https://github.com/users/meena-rathi/projects/2).
-I followed the agile methodology to implement my project using GitHub Projects.
-Each user story has its own acceptance criteria.
+
+* I have designed the user stories outlined in my [GitHub project](https://github.com/users/meena-rathi/projects/2).
+* I followed the agile methodology to implement my project using GitHub Projects.
+* Each user story has its own acceptance criteria.
 
 The user storys in my GitHub project are as follows:
 
@@ -63,7 +65,7 @@ These are wire frames of my website.
 
 I have designed the ERD Diagram on th excel sheet.
 
-![Erd](documentation/images/entity-diagram.JPG)
+![Erd](documentation/entity/entity-diagram.JPG)
 
 
 ## Fonts ##
@@ -89,6 +91,12 @@ These are full website on screenshots.
 
 ## Features ##
 
+When a user signed In, a message must be displayed.
+
+For reservation and viewing reservations, signing in is mandatory.
+
+![signin](/documentation/feature/signinmessage.JPG)
+
 The navigation bar is active and highlights the current page you are on, making navigation easier.
 
 The navigation bar is responsive, making it convenient for visitors using smaller screens.
@@ -106,11 +114,9 @@ The menu page has three tabs: Lunch, Dinner, and Drinks. Lunch menu is ative whe
 when user crete the resertion if the emil is lredy exir it must show error thsi lredy exit.
 when user enter new emil is sve dt in dtbse reditert to view resetion.
 
-
 ![reservation](/documentation/feature/createreservation.JPG)
 
 When a user creates a reservation, if the email already exists, it should display an error message indicating that it already exists. If the user enters a new email, the data is saved in the database and redirected to view the reservation.
-
 
 ![view reservation](/documentation/feature/viewreservation.JPG)
 
@@ -123,6 +129,14 @@ When a user clicks on the delete button, a pop-up alert appears asking, "Are you
 ![delete reservation](/documentation/feature/deletemessage.JPG)
 
 When the reservation is successfully deleted, a message appears confirming the deletion.
+
+![Edit reservation](/documentation/feature/editresertionmessage.JPG)
+
+When a user edits the form, if something goes wrong, a message must be displayed.
+
+![Edit reservation](/documentation/feature/editreservation.JPG)
+
+When a user edits the form, if something goes wrong, a error must displayed. if not the form edit successfully.
 
 ## Deployment
 
@@ -167,12 +181,8 @@ HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_u
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Site link <https://meena-rathi.github.io/quiz_javascript/>| redirect to the Home Page| MR icon cliked | Home page | Pass |
-| All N | Questions page appears | Clicked on the start button |  Question is displayed | Pass |
-| Player name Text Field | Error message for disallowed spaces| Clicked on the start button  |Spaces are not allowed | Pass |
-| Player name Text Field |  Player name is required| Clicked on the start button |Player Name is required| Pass |
-| Start | 	Questions appear on screen | Clicked start button | Questions dislpay | Pass |
-
+| Logo | redirect to the Home Page| MR icon cliked | Home page | Pass |
+| Menu Tabs | redirected to particular paged cliked on the tab | Clicked on th tabs | Page opened as per clicked tab | Pass |
 
 #### Footer
 
