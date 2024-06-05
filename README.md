@@ -74,13 +74,18 @@ Font Colors: The color scheme for text is primarily brown, gray and white.
 
 ## Screenshots of Finished Website ##
 
-![signup](/documentation/images/signup.JPG)
+These are full website on screenshots.
 
-![home](/documentation/images/home1.JPG)
-![Dinner](/documentation/images/dinner.JPG)
-![Lunch](/documentation/images/lunchmenu.JPG)
-![Drink](/documentation/images/drink.JPG)
-![home](/documentation/images/home1.JPG)
+![signup](/documentation/fullwebisteimages//signup.JPG)
+![login](/documentation/fullwebisteimages/login.JPG)
+![signout](/documentation/fullwebisteimages/Signout.JPG)
+![home](/documentation/fullwebisteimages/home1.JPG)
+![menu](/documentation/fullwebisteimages/menu.JPG)
+![reservation](/documentation/fullwebisteimages/reservation.JPG)
+![view reservation](/documentation/fullwebisteimages/viewreservation.JPG)
+![Edit reservation](/documentation/fullwebisteimages/editreservation.JPG)
+![detele reservation](/documentation/fullwebisteimages/deletealert.JPG)
+
 
 ## Features ##
 
@@ -88,6 +93,36 @@ The navigation bar is active and highlights the current page you are on, making 
 
 The navigation bar is responsive, making it convenient for visitors using smaller screens.
 
+![navbar](/documentation/feature/navigation.JPG)
+
+The footer contain the adress and social icon.
+
+![footer](/documentation/feature/footer.JPG)
+
+The menu page has three tabs: Lunch, Dinner, and Drinks. Lunch menu is ative when page reload. When a user clicks on the Lunch tab, they see the lunch menu. Clicking on the Dinner tab shows the dinner menu, and clicking on the Drinks tab displays the drinks menu.
+
+![menu](/documentation/feature/menu.JPG)
+
+when user crete the resertion if the emil is lredy exir it must show error thsi lredy exit.
+when user enter new emil is sve dt in dtbse reditert to view resetion.
+
+
+![reservation](/documentation/feature/createreservation.JPG)
+
+When a user creates a reservation, if the email already exists, it should display an error message indicating that it already exists. If the user enters a new email, the data is saved in the database and redirected to view the reservation.
+
+
+![view reservation](/documentation/feature/viewreservation.JPG)
+
+After successfully creating the reservation, the user can edit or delete the reservation here.
+
+![delete reservation](/documentation/feature/deletealert.JPG)
+
+When a user clicks on the delete button, a pop-up alert appears asking, "Are you sure you want to delete?"
+
+![delete reservation](/documentation/feature/deletemessage.JPG)
+
+When the reservation is successfully deleted, a message appears confirming the deletion.
 
 ## Deployment
 
