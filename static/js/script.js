@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
 
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', handleFormSubmission);
     }
+
     function validateForm(form) {
         var isValid = true;
 
@@ -84,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             contactNumberError.textContent = '';
         }
-
 
         // Validate number of people
         var numberPeopleField = form.elements['number_people'];
@@ -150,6 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return 'Contact number is required.';
             } else if (contactNumber.includes(' ')) {
                 return 'Spaces are not allowed in the contact number.';
+            } else if (contactNumber.startsWith(' ') || contactNumber.endsWith(' ')) {
+                return 'Spaces are not allowed at the start or end of the contact number.';
             } else if (!contactNumber.match(/^\+?\d+$/)) {
                 return 'Contact number can only contain digits and optional "+" sign.';
             } else if (contactNumber.length < 10 || contactNumber.length > 15) {
@@ -211,11 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
             var contactNumberField = document.getElementById('id_contact_number');
             var contactNumber = contactNumberField.value.trim();
             var errorSpan = document.getElementById('contact-number-error');
-        
 
             // Reset error message
             errorSpan.textContent = '';
-     
 
             // Validate only if submission has been attempted
             if (submitAttempted) {
@@ -303,4 +304,16 @@ document.addEventListener('DOMContentLoaded', function() {
             callback(false);
         });
     }
+
+    // Auto-dismiss existing alerts after 5 seconds
+    var alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(alert) {
+        setTimeout(function() {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(function() {
+                alert.remove();
+            }, 150); // Wait for the fade-out transition to complete before removing
+        }, 5000); // 5000ms = 5 seconds
+    });
 });
