@@ -3,6 +3,7 @@ from django import forms
 from .models import Reservation
 from datetime import date
 import re
+from allauth.account.forms import SignupForm
 
 class ReservationsForm(forms.ModelForm):
     class Meta:
@@ -60,3 +61,19 @@ class ReservationsForm(forms.ModelForm):
             raise forms.ValidationError("The date cannot be in the past")
 
         return cleaned_data
+
+
+class CustomSignupForm(SignupForm):
+    """
+    Extends the allauth signup form with additional fields.
+    """
+    username = forms.CharField(max_length=50, required=True, label='Username')
+    email = forms.EmailField(max_length=50, required=True, label='Email')
+
+    def save(self, request):
+        user = super(CustomSignupForm, self).save(request)
+        user.username = self.cleaned_data['username']
+        user.email = self.cleaned_data['email']
+
+        user.save()
+        return user

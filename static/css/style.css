@@ -113,9 +113,7 @@ html, body {
     height: 250px; 
     border: 1px solid  #a52a2a;
     margin: 20px auto ;
- 
 }
-
 
 .menu-item-image {
     width: 100%; 
@@ -207,10 +205,10 @@ html, body {
     color: #a52a2a;
 }
 #booking-form {
-    background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.2); 
 }
 .login{
-    background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.2); 
     color: #fff;  
 }
 
