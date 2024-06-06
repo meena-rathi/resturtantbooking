@@ -1,11 +1,11 @@
 ## Introduction ##
 
-I've developed a restaurant table reservation website. Users can view the menu for lunch and dinner. They can book reservations for a specific date and time, ensuring they can't select past dates. Only future and current dates are selectable. Additionally, users can delete and edit their reservations.
+I've developed a restaurant reservation website. Users can view the menu for lunch and dinner. They can book reservations for a specific date and time, ensuring they can't select past dates. Only future and current dates are selectable. Additionally, users can delete and edit their reservations.
 
 ## User Personas ##
 
-A family wants to spent time together with delicious food.
-A person wants to go with his firends for dinner or lunch. 
+- A family wants to spent time together with delicious food.
+- A person wants to go with his firends for dinner or lunch. 
 
 ## User Stories ##
 
@@ -70,23 +70,9 @@ I have designed the ERD Diagram on th excel sheet.
 
 ## Fonts ##
 
-The 'Lato' font family, a sans-serif typeface, has been selected for use across the resturtant project. 
+- The 'sans-serif' font family, a sans-serif typeface, has been selected for use across the resturtant project. 
 
-Font Colors: The color scheme for text is primarily brown, gray and white.
-
-## Screenshots of Finished Website ##
-
-These are full website on screenshots.
-
-![signup](/documentation/fullwebisteimages//signup.JPG)
-![login](/documentation/fullwebisteimages/login.JPG)
-![signout](/documentation/fullwebisteimages/Signout.JPG)
-![home](/documentation/fullwebisteimages/home1.JPG)
-![menu](/documentation/fullwebisteimages/menu.JPG)
-![reservation](/documentation/fullwebisteimages/reservation.JPG)
-![view reservation](/documentation/fullwebisteimages/viewreservation.JPG)
-![Edit reservation](/documentation/fullwebisteimages/editreservation.JPG)
-![detele reservation](/documentation/fullwebisteimages/deletealert.JPG)
+- Font Colors: The color scheme for text is primarily brown, gray and white.
 
 
 ## Features ##
@@ -107,12 +93,13 @@ The footer contain the adress and social icon.
 
 ![footer](/documentation/feature/footer.JPG)
 
-The menu page has three tabs: Lunch, Dinner, and Drinks. Lunch menu is ative when page reload. When a user clicks on the Lunch tab, they see the lunch menu. Clicking on the Dinner tab shows the dinner menu, and clicking on the Drinks tab displays the drinks menu.
+- The menu page has three tabs: Lunch, Dinner, and Drinks. Lunch menu is ative when page reload. When a user clicks on the Lunch tab, they see the lunch menu.
+- Clicking on the Dinner tab shows the dinner menu, and clicking on the Drinks tab displays the drinks menu.
 
 ![menu](/documentation/feature/menu.JPG)
 
-when user crete the resertion if the emil is lredy exir it must show error thsi lredy exit.
-when user enter new emil is sve dt in dtbse reditert to view resetion.
+- When a user creates a reservation, if the email already exists, it should display an error indicating that it is already in use.
+- If the user enters a new email, the data should be saved in the database and redirected to view the reservation.
 
 ![reservation](/documentation/feature/createreservation.JPG)
 
@@ -138,7 +125,9 @@ When a user edits the form, if something goes wrong, a message must be displayed
 
 When a user edits the form, if something goes wrong, a error must displayed. if not the form edit successfully.
 
-## Deployment
+## Deployment & Local Development
+
+### Deployment
 
 - Set up a PostgreSQL server on ElephantSQL.
 - Adjusted the settings file to use the ElephantSQL database.
@@ -157,89 +146,38 @@ When a user edits the form, if something goes wrong, a error must displayed. if 
 
 Here is a link to my Deployed project: [reseturtant reservation](https://resturtantbooking-f16cfcc27fc2.herokuapp.com/)
 
+### Local Development
+
+#### Fork
+
+To fork the repository, follow these steps:
+
+- Log in to your GitHub account (or sign up if you don't have one).
+- Navigate to the repository: [reservation](https://github.com/meena-rathi/resturtantbooking)
+- Click the "Fork" button located in the top right corner of the page.
+
+#### Clone
+
+To clone the repository:
+
+- Log in to GitHub (or sign up if you don't have an account).
+- Navigate to the repository: [reservation](https://github.com/meena-rathi/resturtantbooking)
+- Click on the "Code" button, select whether you would like to clone with HTTPS, SSH, or GitHub CLI, and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location where - you want to clone the repository.
+- Type git clone into the terminal, then paste the link you copied in step 3. Press Enter.
+
 ## Languages and Frameworks
 
-This project was created using Django 4.2.1 and Bootstrap 5.3.
+- This project was created using Django 4.2.1 and Bootstrap 5.3.
 
-The additional libraries used can be found in the requirements.txt file.
-
-CSS
+- The additional libraries used can be found in the requirements.txt file.
+- CSS
+- HTML
+- JS
 
 ## Testing
 
-### Validation
-
-Python was validated using [PEP8 CI python linter](https://pep8ci.herokuapp.com/), with no errors or warnings.
-
-CSS was validated using [jigsaw](https://jigsaw.w3.org/css-validator/#validate_by_input), with no errors or warnings.
-
-HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_uri), with no errors or warnings.
-
-### Manual Testing
-
-#### Navbar
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Logo | redirect to the Home Page| MR icon cliked | Home page | Pass |
-| Menu Tabs | redirected to particular paged cliked on the tab | Clicked on th tabs | Page opened as per clicked tab | Pass |
-
-#### Footer
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Facebook link in navigation| Leads to correct site and opens in a new tab| Clicked on Facebook link|  Facebook page open |Pass |
-| Instagram link in navigation | Leads to correct site and opens in a new tab | Clicked on Instagram link | Instagram open  | Pass |
-| Twitter link in navigation | Leads to correct site and opens in a new tab | Clicked on Twitter link |Twitter open | Pass |
-
-#### Home Page
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Menu button| Leads to correct menu page| Clicked on Menu button |  Menu page open |Pass |
-| Reservation button|Leads to correct Reservation page | Clicked on Reservation button | Reservation page open |Pass |
-
-#### Menu Page
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Lunch button| Lunch menu open| Clicked on lunch button | lunch Menu  open |Pass |
-| Dinner button| Dinner menu open| Clicked on Dinner button | Dinner menu open |Pass |
-| Drink button| Drink menu open| Clicked on Drink button | Drink Menu open |Pass |
-
-#### Reservation Page
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Sign In| Reservation must be open after login the page | After sign In | Reservation open |Pass |
-| Email | Email vaild | Enter email | The email is correct | Pass |
-| Email | Email not vaild | Enter email | The email is not correct | Pass |
-| Email | Email already registered | Enter email | This email is already registered | Pass |
-| Contact Number | The Enter contact Number is valid | Enter contact number | The contact number is correct | Pass |
-| Contact Number | The Enter contact Number is not valid | Enter contact number | The contact number is not correct | Pass |
-| Date | Only select the current or future date | Select Date | Only select the current or future date | Pass |
-| Date | Past Dates not selected | Select Date | user can't select the past Date | Pass |
-| reservation Button | All fileds enter valid data | Submit reservation | View reservation page open | Pass |
-
-#### View Reservation
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Logged User| View the reservation | Logged User | View Reservation | Pass |
-
-#### Delete Reservation
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| Logged User| Delete the Reservation from view Reservation page | Logged User | Delete Reservation | Pass |
-
-#### Edit Reservation
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| logged User| Edit the Reservation from view Reservation page | Logged User | Edit Reservation | Pass |
-| Edit  | All filed contain the valid Data | Edit | No error Data updated | Pass |
-| Edit  | If any filed is not valid | Edit |  error Data has not been updated | Pass |
+For details on all testing carried out,[TESTING.md](TESTING.md) please refer to the TESTING.md file.
 
 ## Fixed Bugs ##
 
@@ -247,7 +185,6 @@ HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_u
 2. Fixed the email validation.
 3. Fixed Edit date validation.
 4. Fixed contact number validation.
-
 
 ## Credits ##
 
@@ -257,3 +194,12 @@ HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_u
 4. [I think therefore I blog](https://github.com/Code-Institute-Solutions/blog)
 5. https://stackoverflow.com/questions/23956288/django-all-auth-email-required
 6. https://docs.djangoproject.com/en/4.2/topics/http/urls/
+
+#### Acknowledgments
+
+I would like to express my gratitude to the following individuals:
+
+- My Mentor, jubril, whose guidance and support have been invaluable.
+- Markus, my classmate, who provided significant assistance with my readme file.
+- kristyna_ci, whose contributions were immensely helpful throughout the project.
+- Thanks to all my classmates who provided feedback about my project. How can I make it even better?
