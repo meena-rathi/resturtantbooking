@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 import dj_database_url
 import os
@@ -46,6 +44,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 ]
 SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -121,8 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
-ACCOUNT_FORMS = {'signup': 'booking.forms.CustomSignupForm'}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
