@@ -84,7 +84,7 @@ html, body {
     margin-top: 10px;
 }
 
-.button-container button {
+.button-container .btn {
     background-color: #a52a2a;
     color: #fff;
     font-size: 40px;
@@ -92,23 +92,16 @@ html, body {
     padding: 10px 20px;
 }
 
-
 #section .nav-tabs .nav-link {
-    /* background-color: rgb(241, 243, 243); */
     color: #d13030;
     font-size: 10px;
     margin: 5px;
 }
 #section .nav-tabs .nav-link.active {
     background-color:  #3d0202;
-
 }
-
-
 .menu-item {
     position: relative;
-    /* margin-top: 50px; */
-    /* margin-right: 2px;  */
     width: 250px; 
     height: 250px; 
     border: 1px solid  #a52a2a;
@@ -150,10 +143,9 @@ html, body {
     flex-direction: column;
     align-items: center;
 }
-
 .nav-item{
     color: #fff;
-    font-size: 20;
+    font-size: 20px;
 }
  .container h2{
     color: #fff;  
@@ -211,8 +203,6 @@ html, body {
     background-color: rgba(0, 0, 0, 0.2); 
     color: #fff;  
 }
-
-
 .btn-primary {
     background-color: brown;
     border-color: brown;
@@ -237,11 +227,9 @@ html, body {
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
-
 .custom-confirm-buttons {
     margin-top: 20px;
 }
-
 .custom-confirm-button {
     margin: 0 10px;
     padding: 10px 20px;
