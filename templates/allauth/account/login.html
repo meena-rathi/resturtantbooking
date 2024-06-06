@@ -6,23 +6,45 @@
     {% trans "Sign In" %}
 {% endblock head_title %}
 
-{% block content %} 
+{% block content %}
 <div class="container justify-content-center transparent-background text-white">
     <div class="row">
-        <div class="col-md-8 mt-5 offset-md-2 py-1"> <!-- Added mt-5 for top margin -->
-            <h3 class="text-center color-white bold">{% trans "Sign In" %}</h3>    
+        <div class="col-md-8 mt-5 offset-md-2 py-1">
+            <h3 class="text-center color-white bold">{% trans "Sign In" %}</h3>
         </div>
     </div>
-    <div class="row justify-content-center"> <!-- Center the form -->
-        <div class="col-md-6 py-1 mb-5"> <!-- Reduced number of columns for the form container -->
-            <form class="login border p-4 rounded" method="POST"  action="{% url 'account_login' %}">
+    <div class="row justify-content-center">
+        <div class="col-md-6 py-1 mb-5">
+            <form class="login border p-4 rounded" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.non_field_errors }}
+
+                <div class="form-group mb-3">
+                    {{ form.login.label_tag }}
+                    {{ form.login }}
+                    {{ form.login.errors }}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+
+                <!-- Exclude remember me checkbox and password reset link -->
+                <!-- Remove or comment out any code that includes the forgot password link -->
+                <!-- For example, if it is included in the form, ensure it's not rendered here -->
+
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-primary btn-signup float-right" type="submit" style="background-color: brown; border-color: brown;">{% trans "Sign In" %}</button>
-                <p class="text-center color-white bold">{% blocktrans %}If you have not created an account yet, then <a class="link" style="color: brown; font-size: 20px; font-weight: bold;" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                
+                <button class="btn btn-primary btn-signup float-right" type="submit" style="background-color: brown; border-color: brown;">
+                    {% trans "Sign In" %}
+                </button>
+                <p class="text-center color-white bold">
+                    {% blocktrans %}If you have not created an account yet, then <a class="link" style="color: brown; font-size: 20px; font-weight: bold;" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+                </p>
             </form>
         </div>
     </div>
