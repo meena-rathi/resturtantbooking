@@ -190,7 +190,7 @@ def menu(request):
             "description": "Water $5"
         },
         {
-            "image": "image/drink2.jpg",
+            "image": "image/drink2.webp",
             "description": "Mojito $4"
         },
     ]
