@@ -5,19 +5,19 @@ body {
     background-size: cover;
     font-family: sans-serif;
 }
-.navbar-nav .underline {
-    position: absolute;
-    bottom: -3px; /* Adjust this value to match your desired position */
-    left: 0;
-    width: 0;
-    height: 2px; /* Adjust this value to change the thickness of the underline */
-    background-color: #a52a2a; /* Adjust this value to match your desired color */
-    transition: width 0.3s ease;
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.nav-item .nav-link:hover + .underline,
-.nav-item .nav-link:focus + .underline {
-    width: 100%;
+/* Underline active, hovered, and focused nav-links */
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: #a52a2a; /* Change the color if needed */
+    text-decoration: underline;
 }
 .error-message
 {
