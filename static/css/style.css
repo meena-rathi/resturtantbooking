@@ -9,12 +9,13 @@ body {
 {
     color: #ff0000;
 }
-.nav-link.active {
+.navbar-nav .nav-link:active {
     text-decoration: underline;
     color: #ffffff;
 }
 
-.nav-link {
+
+.navbar-nav .nav-link:active ~ .nav-item .nav-link {
     text-decoration: none;
 }
 .logo-background {
