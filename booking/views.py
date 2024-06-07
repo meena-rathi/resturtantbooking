@@ -186,12 +186,12 @@ def menu(request):
             "description": "Mojito $4"
         },
         {
-            "image": "image/lunch3.jpg",
-            "description": "Cheese Paratha $15"
+            "image": "image/drink4.jpg",
+            "description": "Water $5"
         },
         {
-            "image": "image/lunch4.jpg",
-            "description": "White rice with curry $20"
+            "image": "image/drink2.jpg",
+            "description": "Mojito $4"
         },
     ]
 

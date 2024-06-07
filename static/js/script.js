@@ -1,10 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired.');
 
     // Function to handle form submission
     function handleFormSubmission(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
 
         // Find the form element
         var form = document.getElementById('booking-form');
@@ -12,14 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Booking form not found.");
             return;
         }
-
-        // Validate all fields
+// Validate all fields
         var isValid = validateForm(form);
-
         if (isValid) {
             // Serialize form data
             var formData = new FormData(form);
-
             // Send form data asynchronously to backend view
             fetch('/reservation/', {
                 method: 'POST',
@@ -107,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (date < today) {
             isValid = false;
             dateError.textContent = 'The reservation date cannot be in the past.';
-            dateError.style.color = 'red'; // Display error in red
+            dateError.style.color = 'red'; 
         } else {
             dateError.textContent = '';
         }
@@ -119,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (time === '') {
             isValid = false;
             timeError.textContent = 'Time is required.';
-            timeError.style.color = 'red'; // Display error in red
+            timeError.style.color = 'red';
         } else {
             timeError.textContent = '';
         }
@@ -129,23 +125,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateEmail(email) {
         var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        var allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com']; // Add allowed domains here
+        var allowedDomains = ['gmail.com', 'yahoo.com', 'hotmail.com'];
 
         if (!re.test(email)) {
-            return 'Invalid email format'; // Return error message for incorrect format
+            return 'Invalid email format';
         }
 
         var domain = email.split('@')[1];
         if (!allowedDomains.includes(domain.toLowerCase())) {
-            return 'Invalid email domain'; // Return error message for invalid domain
+            return 'Invalid email domain';
         }
 
-        return ''; // Empty string means email is valid
+        return '';
     }
 
     function validateContactNumber(contactNumber) {
-        var contactNumberPattern = /^\+?(\d{10,15})$/; // Allow optional '+' sign and digits between 10 to 15 in length
-
+        var contactNumberPattern = /^\+?(\d{10,15})$/;
         if (!contactNumberPattern.test(contactNumber)) {
             if (contactNumber.trim() === '') {
                 return 'Contact number is required.';
@@ -160,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return 'Invalid contact number format.';
         }
-        return ''; // Empty string means contact number is valid
+        return '';
     }
 
     function showAlert(message) {
@@ -170,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 
         document.body.appendChild(alert);
-
-        // Auto-dismiss alert after 5 seconds
         setTimeout(function() {
             alert.classList.remove('show');
             alert.classList.add('fade');
@@ -180,24 +173,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 150);
         }, 5000);
     }
-
-    // Add event listener for form submission
     var form = document.getElementById('booking-form');
     if (form) {
         form.addEventListener('submit', handleFormSubmission);
     }
-
-    // Event listener for input on the email field
     var emailField = document.getElementById('id_email');
     if (emailField) {
         emailField.addEventListener('input', function(event) {
             var email = event.target.value.trim();
             var emailError = document.getElementById('email-error');
-
             var emailValidationResult = validateEmail(email);
             if (emailValidationResult !== '') {
                 emailError.textContent = emailValidationResult;
-                emailError.style.color = 'red'; // Display error in red
+                emailError.style.color = 'red';
             } else {
                 emailError.textContent = '';
             }
@@ -205,46 +193,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var contactForm = document.getElementById('booking-form');
-    var submitAttempted = false; // Flag to track form submission attempts
-
+    var submitAttempted = false;
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
-            submitAttempted = true; // Set flag to true upon form submission
-
+            submitAttempted = true;
             var contactNumberField = document.getElementById('id_contact_number');
             var contactNumber = contactNumberField.value.trim();
             var errorSpan = document.getElementById('contact-number-error');
-
-            // Reset error message
             errorSpan.textContent = '';
-
-            // Validate only if submission has been attempted
             if (submitAttempted) {
                 var contactNumberValidationResult = validateContactNumber(contactNumber);
                 if (contactNumberValidationResult !== '') {
                     errorSpan.textContent = contactNumberValidationResult;
-                    errorSpan.style.color = 'red'; // Display error in red
-                    event.preventDefault(); // Prevent form submission
+                    errorSpan.style.color = 'red';
+                    event.preventDefault();
                     return;
                 }
             }
         });
-
-        // Reset the submitAttempted flag when user interacts with the contact number field
         var contactNumberField = document.getElementById('id_contact_number');
         contactNumberField.addEventListener('input', function(event) {
             submitAttempted = false;
         });
     }
-
-    // Event listener for input on the date field
     document.body.addEventListener('input', function(event) {
         if (event.target.id === 'id_date') {
             handleDateInput(event.target);
         }
     });
-
-    // Function to handle input on the date field
     function handleDateInput(dateInput) {
         let today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('value', today);
@@ -255,15 +231,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
             var bookingId = this.getAttribute('data-booking-id');
             var deleteForm = document.getElementById('delete-form-' + bookingId);
-            console.log('Delete form:', deleteForm); // Move the log here
+            console.log('Delete form:', deleteForm);
             if (deleteForm) {
                 showCustomConfirm(function(confirmation) {
                     if (confirmation) {
-                        showAlert("Reservation deleted successfully."); // Show alert on deletion
+                        showAlert("Reservation deleted successfully.");
                         deleteForm.submit();
                     }
                 });
@@ -313,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert.classList.add('fade');
             setTimeout(function() {
                 alert.remove();
-            }, 150); // Wait for the fade-out transition to complete before removing
-        }, 5000); // 5000ms = 5 seconds
+            }, 150);
+        }, 5000);
     });
 });

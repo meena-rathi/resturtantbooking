@@ -1,3 +1,7 @@
+# Resturtant Reservation
+
+![Am I responsive screenshot](documentation/responsive.JPG)
+
 ## Introduction ##
 
 I've developed a restaurant reservation website. Users can view the menu for lunch and dinner. They can book reservations for a specific date and time, ensuring they can't select past dates. Only future and current dates are selectable. Additionally, users can delete and edit their reservations.
@@ -74,7 +78,6 @@ I have designed the ERD Diagram on th excel sheet.
 
 - Font Colors: The color scheme for text is primarily brown, gray and white.
 
-
 ## Features ##
 
 When a user signed In, a message must be displayed.
@@ -83,13 +86,12 @@ For reservation and viewing reservations, signing in is mandatory.
 
 ![signin](/documentation/feature/signinmessage.JPG)
 
-The navigation bar is active and highlights the current page you are on, making navigation easier.
-
-The navigation bar is responsive, making it convenient for visitors using smaller screens.
+- The navigation bar is active and highlights the current page you are on, making navigation easier.
+- The navigation bar is responsive, making it convenient for visitors using smaller screens.
 
 ![navbar](/documentation/feature/navigation.JPG)
 
-The footer contain the adress and social icon.
+- The footer contain the adress and social icon.
 
 ![footer](/documentation/feature/footer.JPG)
 
@@ -103,27 +105,28 @@ The footer contain the adress and social icon.
 
 ![reservation](/documentation/feature/createreservation.JPG)
 
-When a user creates a reservation, if the email already exists, it should display an error message indicating that it already exists. If the user enters a new email, the data is saved in the database and redirected to view the reservation.
+- When a user creates a reservation, if the email already exists, it should display an error message indicating that it already exists. 
+- If the user enters a new email, the data is saved in the database and redirected to view the reservation.
 
 ![view reservation](/documentation/feature/viewreservation.JPG)
 
-After successfully creating the reservation, the user can edit or delete the reservation here.
+- After successfully creating the reservation, the user can edit or delete the reservation here.
 
 ![delete reservation](/documentation/feature/deletealert.JPG)
 
-When a user clicks on the delete button, a pop-up alert appears asking, "Are you sure you want to delete?"
+- When a user clicks on the delete button, a pop-up alert appears asking, "Are you sure you want to delete?"
 
 ![delete reservation](/documentation/feature/deletemessage.JPG)
 
-When the reservation is successfully deleted, a message appears confirming the deletion.
+- When the reservation is successfully deleted, a message appears confirming the deletion.
 
 ![Edit reservation](/documentation/feature/editresertionmessage.JPG)
 
-When a user edits the form, if something goes wrong, a message must be displayed.
+- When a user edits the form, if something goes wrong, a message must be displayed.
 
 ![Edit reservation](/documentation/feature/editreservation.JPG)
 
-When a user edits the form, if something goes wrong, a error must displayed. if not the form edit successfully.
+- When a user edits the form, if something goes wrong, a error must displayed. if not the form edit successfully.
 
 ## Deployment & Local Development
 
@@ -195,7 +198,7 @@ For details on all testing carried out,[TESTING.md](TESTING.md) please refer to 
 5. https://stackoverflow.com/questions/23956288/django-all-auth-email-required
 6. https://docs.djangoproject.com/en/4.2/topics/http/urls/
 
-#### Acknowledgments
+## Acknowledgments ##
 
 I would like to express my gratitude to the following individuals:
 
