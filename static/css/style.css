@@ -9,6 +9,10 @@ body {
 {
     color: #ff0000;
 }
+.nav-link.active {
+    text-decoration: underline;
+    color: #ffffff;
+}
 .logo-background {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
