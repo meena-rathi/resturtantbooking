@@ -2,11 +2,13 @@
 
 ### Validation
 
-Python was validated using [PEP8 CI python linter](https://pep8ci.herokuapp.com/), with no errors or warnings.
+Python was validated using [PEP8 CI python linter](https://pep8ci.herokuapp.com/), with no errors.
 
 CSS was validated using [jigsaw](https://jigsaw.w3.org/css-validator/#validate_by_input), with no errors or warnings.
 
 HTML was validated using [W3C Validator](https://validator.w3.org/#validate_by_uri), with no errors or warnings.
+
+js was validated using [JS Validator](https://jshint.com/), with no errors or warnings.
 
 ### Lighthouse Report
 
