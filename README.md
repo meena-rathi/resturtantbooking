@@ -1,4 +1,4 @@
-# Resturtant Reservation
+# Resturtant Reservation Webiste
 
 ![Am I responsive screenshot](documentation/responsive.JPG)
 
@@ -20,7 +20,7 @@ I've developed a restaurant reservation website. Users can view the menu for lun
 The user storys in my GitHub project are as follows:
 
 * As a site user, I can easily create an account to access the website.
-* As a site user, I can make a reservation for a table on the current date or future dates so that I have a reservation.
+* As a site user, I can make a reservation for luncj or dinner on the current date or future dates so that I have a reservation.
 * As a site user, I can see my reservation.
 * As a site user, I can edit or delete my reservation.
 * As a site admin, I can create, delete, and update reservations.
@@ -41,7 +41,6 @@ Pervious user:
 ## Website Owner Goals
 
 - Allow users to view, modify, and manage their bookings effortlessly.
-- Send timely confirmations and date.
 - Design an intuitive layout for easy access to menu.
 - Ensure the sign-up process is simple, with minimal steps and clear instructions.
 

@@ -16,7 +16,7 @@ js was validated using [JS Validator](https://jshint.com/), with no errors or wa
 
 ### Automation Testing
 
-I have done only automation testing for the resertion.
+I have done only automation testing for the resveration.
 
 ### Manual Testing
 
